@@ -1,0 +1,125 @@
+#iGateway Bill V200总MAKEFILE
+
+IGWB_ROOT    = .
+COM_DIR      = $(IGWB_ROOT)/com
+PRODUCT_DIR  = $(IGWB_ROOT)/product
+MAKE         = make
+CLEAN_FLAG   = clean
+
+#生成平台相关的in文件
+
+#生成release版本
+release : mkdir RELEASE BUILD CPOUTPUT
+RELEASE:
+	if (test -d $(IGWB_ROOT)/debug.in) ; then pwd ; else cp debug_bak.in debug.in ; fi
+	if (test -d $(IGWB_ROOT)/output) ; then pwd ; else mkdir $(IGWB_ROOT)/output ; fi
+
+#生成debug版本
+debug : mkdir DEBUG BUILD CPOUTPUT
+DEBUG:
+	if (test -d $(IGWB_ROOT)/debug.in) ; then pwd ; else cp debug_g.in debug.in ; fi
+	if (test -d $(IGWB_ROOT)/output) ; then pwd ; else mkdir $(IGWB_ROOT)/output ; fi
+
+clean :
+	if (test -d $(IGWB_ROOT)/output/*) ; then rm -r $(IGWB_ROOT)/output/* ; else pwd ; fi
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/agent
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/alarm
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/toolbase
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/alarm_util
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/backsave
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/backup
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/cdrstat
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/cdrsender
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/cfgsvr
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/clusterinterface
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/comm 
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/convert 
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/format
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/frame
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/frontsave
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/licensemanager
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/log
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/merge
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/mml
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/monitor
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/netbase
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/perf
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/ps_patch
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/querybrowse
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r4_440
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r4_440_m
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r98_760
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r98_760_m
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r98_770
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r98_770_m
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r99_360
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r99_360_m
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r99_3a0
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/r99_3a0_m
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/utility
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/xml_util
+	$(MAKE) $(CLEAN_FLAG) -C $(COM_DIR)/mmlcmd
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/agent
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/ap
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/cfg
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/kernel
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/om
+	$(MAKE) $(CLEAN_FLAG) -C $(PRODUCT_DIR)/bs
+mkdir:
+	if (test -d $(COM_DIR)/lib) ; then pwd ; else mkdir $(COM_DIR)/lib ; fi
+	cp -f $(IGWB_ROOT)/product_moto.in $(IGWB_ROOT)/product.in
+	cp -f $(IGWB_ROOT)/platform_app.in $(IGWB_ROOT)/app.in
+	cp -f $(IGWB_ROOT)/platform_dll.in $(IGWB_ROOT)/dll.in
+	cp -f $(IGWB_ROOT)/platform_lib.in $(IGWB_ROOT)/lib.in
+	cp -f $(IGWB_ROOT)/platform_oss.in $(IGWB_ROOT)/oss.in
+	cp -f $(IGWB_ROOT)/platform_xml.in $(IGWB_ROOT)/xml.in
+	cp -f $(IGWB_ROOT)/platform_solaris.in $(IGWB_ROOT)/platform.in
+
+BUILD:
+	$(MAKE) -C $(COM_DIR)/agent
+	$(MAKE) -C $(COM_DIR)/alarm
+	$(MAKE) -C $(COM_DIR)/toolbase
+	$(MAKE) -C $(COM_DIR)/alarm_util
+	$(MAKE) -C $(COM_DIR)/backsave
+	$(MAKE) -C $(COM_DIR)/backup
+	$(MAKE) -C $(COM_DIR)/cdrstat
+	$(MAKE) -C $(COM_DIR)/cdrsender
+	$(MAKE) -C $(COM_DIR)/cfgsvr
+	$(MAKE) -C $(COM_DIR)/clusterinterface
+	$(MAKE) -C $(COM_DIR)/comm 
+	$(MAKE) -C $(COM_DIR)/convert 
+	$(MAKE) -C $(COM_DIR)/format
+	$(MAKE) -C $(COM_DIR)/frame
+	$(MAKE) -C $(COM_DIR)/frontsave
+	$(MAKE) -C $(COM_DIR)/licensemanager
+	$(MAKE) -C $(COM_DIR)/log
+	$(MAKE) -C $(COM_DIR)/merge
+	$(MAKE) -C $(COM_DIR)/mml
+	$(MAKE) -C $(COM_DIR)/monitor
+	$(MAKE) -C $(COM_DIR)/netbase
+	$(MAKE) -C $(COM_DIR)/perf
+	$(MAKE) -C $(COM_DIR)/ps_patch
+	$(MAKE) -C $(COM_DIR)/querybrowse
+	$(MAKE) -C $(COM_DIR)/r4_440
+	$(MAKE) -C $(COM_DIR)/r4_440_m
+	$(MAKE) -C $(COM_DIR)/r98_760
+	$(MAKE) -C $(COM_DIR)/r98_760_m
+	$(MAKE) -C $(COM_DIR)/r98_770
+	$(MAKE) -C $(COM_DIR)/r98_770_m
+	$(MAKE) -C $(COM_DIR)/r99_360
+	$(MAKE) -C $(COM_DIR)/r99_360_m
+	$(MAKE) -C $(COM_DIR)/r99_3a0
+	$(MAKE) -C $(COM_DIR)/r99_3a0_m
+	$(MAKE) -C $(COM_DIR)/utility
+	$(MAKE) -C $(COM_DIR)/xml_util
+	$(MAKE) -C $(COM_DIR)/mmlcmd
+	$(MAKE) -C $(PRODUCT_DIR)/agent
+	$(MAKE) -C $(PRODUCT_DIR)/ap
+	$(MAKE) -C $(PRODUCT_DIR)/cfg
+	$(MAKE) -C $(PRODUCT_DIR)/kernel
+	$(MAKE) -C $(PRODUCT_DIR)/om
+	$(MAKE) -C $(PRODUCT_DIR)/bs
+
+CPOUTPUT:
+	mv $(IGWB_ROOT)/com/lib/*.s* $(IGWB_ROOT)/output
+	#Attention: All output files in direction($(IGWB_ROOT)/output)

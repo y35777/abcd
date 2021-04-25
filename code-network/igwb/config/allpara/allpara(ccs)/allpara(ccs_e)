@@ -1,0 +1,539 @@
+[switch_count]
+SectList = system
+Relation = &switch%switch ID%
+Type = NUM
+Desc = The number of collection task
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[begin_time]
+SectList = system^switch%switch ID%
+Relation = 
+Type = STR
+Desc = The start time of collection task. Format description: HH:MM
+Default = 00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[end_time]
+SectList = system^switch%switch ID%
+Relation = 
+Type = STR
+Desc = The end time of collection task. Format description: HH:MM
+Default = 23:59
+MustFlag = NO
+UpdateFlag = YES
+
+[col_suc_cycle]
+SectList = system^switch%switch ID%
+Relation = 
+Type = NUM
+Desc = collection cycle. The unit is second.
+Default = 600
+MustFlag = YES
+UpdateFlag = YES
+
+[min_col_cycle]
+SectList = system
+Relation = 
+Type = NUM
+Desc = The minimum cycle of collection.The unit is second.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[col_list_time]
+SectList = system^switch%switch ID%^
+Relation = 
+Type = STR
+Desc = The list of collection time.Act on fixed collection.Format description: HH:MM. The list separator:','
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[once_col_list_time]
+SectList = system^switch%switch ID%
+Relation = 
+Type = STR
+Desc = One time only list of collection time.At the appointed time to perform a collection.Format description:YYYY-mm-DD HH:MM:SS,The list separator:','
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[col_fail_cycle]
+SectList = system^switch%switch ID%
+Relation = 
+Type = NUM
+Desc = The interval of repeated collection after the failed collection. The unit is second.
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[file_col_count]
+SectList = system^switch%switch ID%
+Relation = 
+Type = NUM
+Desc = In once time collection,after collect a file has failed, The time for collect the file again.
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[cnt_fail_cycle]
+SectList = system^switch%switch ID%
+Relation = 
+Type = NUM
+Desc = The interval of time for reconnection after the connection has failed.The unit is second.
+Default = 120
+MustFlag = NO
+UpdateFlag = YES
+
+[orig_file_save_days]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = The original CDR is saved for number of days in native.
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[final_file_save_days]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = The finally CDR is saved for number of days in native.
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[check_sn]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = Whether It will check file's sequence number. 0 for not check sequence number,1 for check sequence number.
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[check_sn_depth]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = When file's sequence number is not continuous.alarm the file by the parameter
+Default = 20
+MustFlag = NO
+UpdateFlag = YES
+
+[collect_name]
+SectList = switch%switch ID%
+Relation = 
+Type = STR
+Desc = the name of collection task
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[collect_type]
+SectList = switch%switch ID%
+Relation = 
+Type = ENUM
+Desc = the type of collection type,for example 5ESS:collect file of 5ESS switch,S1240:collect file of S1240 switch,CC08:collect file of CC08,ZXJ:collect file of ZXJ,TELLIN:collect file of tellin,METER_CC08:collect metersum file of CC08.
+Default = :5ESS,S1240,CC08,ZXJ,TELLIN,METER_CC08
+MustFlag = YES
+UpdateFlag = YES
+
+[protocol_factory]
+SectList = switch%switch ID%
+Relation = 
+Type = ENUM
+Desc = the type of protocol.for example FTP protocol,FileScan protocol.
+Default = :FTP,FileScan
+MustFlag = YES
+UpdateFlag = YES
+
+[link_count]
+SectList = switch%switch ID%
+Relation = &switch%switch ID%_link%link ID%
+Type = NUM
+Desc = the number of link
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[file_len_verify]
+SectList = system^switch%switch ID%
+Relation = 
+Type = ENUM
+Desc = whether doing verify for the length of file.(0:not verify,1:verify)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_level_verify]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether doing verify for file of CDR(0:not verify,1:verify)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_level_err_recol]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether doing repeated collection after the verify for file of CDR has failed (0:not repeated collection,1:repeated collection)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[bill_level_verify]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether doing verify for CDR(0:not verify,1:verify)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[bill_level_err_recol]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether doing repeated collection after the verify for CDR has failed.(0:not repeated collection,1:repeated collection)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[create_zero_final_file]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether create the final file of CDR that it is 0 byte,(0:not create,1:create)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[force_col_all_file]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether repeated collect all file.0:not repeated collection,1:repeated collection
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[orig_bill_len]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = the length of original CDR,CC08 is must config. at present the other production is useless.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[final_dir]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = the directory of final CDR.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[module_label]
+SectList = switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = the name of module
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_dir]
+SectList = switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = a mapping from switchboard to the native root directory.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[remote_dir]
+SectList = switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = the file of CDR lie on switchboard's directory.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[bill_type]
+SectList = switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = the type of CDR Meter:record the time of call,Other:other type
+Default = :Meter,Detail,Other
+MustFlag = NO
+UpdateFlag = YES
+
+[remote_addr]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = IP
+Desc = the address of remote switchboard.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[remote_user]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the name of user for login switchboard.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[remote_pwd]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the password of user for login switchboard.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_addr]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = IP
+Desc = the address it is from native PC to switchboard.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_user]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the name of user for login native PC.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_pwd]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the password of user for login native PC.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[dev_name]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the physical name of device for connect switchboard. service for X.25 collect link.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[trans_speed]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = STR
+Desc = the speed of transfer of the link.act on decision the time of overtime when collect file.service for X.25 collect link.
+Default = 6
+MustFlag = NO
+UpdateFlag = YES
+
+[alarm_para]
+SectList = switch%switch ID%_link%link ID%
+Relation = 
+Type = NUM
+Desc = the alarm parameter when the link is exception.the first number show port No. the second number show physical device No.
+Default = -1
+MustFlag = NO
+UpdateFlag = YES
+
+[office_num]
+SectList = switch%switch ID%
+Relation = 
+Type = NUM
+Desc = the office number.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[switch_code]
+SectList = switch%switch ID%
+Relation = 
+Type = STR
+Desc = the code of switchboard.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[pri_link]
+SectList = switch%switch ID%
+Relation = &switch%switch ID%_link%link ID%
+Type = STR
+Desc = the name of primary link.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[bak_link]
+SectList = switch%switch ID%
+Relation = &switch%switch ID%_link%link ID%
+Type = STR
+Desc = the name of backup link.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[del_remote_file]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether delete the file in switchboard after collection.(0:not delete,1:delete).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[col_last_file]
+SectList = system^switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether collect the last file in switchboard.(1:collection,0:not collection)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[col_dir_count]
+SectList = switch%switch ID%
+Relation = &switch%switch ID%col_dir%directory ID%
+Type = NUM
+Desc = the number of directory in switchboard will be collected.(the default value: 0 ).
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[file_sn_len]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = the length of the sequence number of CDR file that it lies on switchboard.(the default value: 8 ).
+Default = 8
+MustFlag = NO
+UpdateFlag = YES
+
+[file_postfix_len]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = the length of CDR file's postfix in switchboard.
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[postfix_filter_mode]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = 0:not collection appointed prefix,1:only collection appointed prefix.
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_postfix]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = the list of postfix of CDR file.list separator is "'",if no config ,it is not any worry unnecessarily.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[prefix_filter_mode]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = 0:not collection appointed prefix,1:only collection appointed prefix.
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_prefix]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = STR
+Desc = the prefix list of CDR files.the list separator is ",".
+Default = 
+MustFlag = 
+UpdateFlag = YES
+
+[file_sn_uplimit]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = the sequence number up limit of CDR file that is lie on switchboard.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[file_sn_downlimit]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = the sequence number lower limit of CDR file that is lie on switchboard.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[trans_mode]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = the transfers pattern for file.involve two pattern for asc and bin.the parameter is effectual when parameter protocol_factory is equal to FTP.
+Default = asc:asc,bin
+MustFlag = NO
+UpdateFlag = YES
+
+[meter_uplimit]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = It is the max for The meter of BAM.
+Default = 100000000
+MustFlag = NO
+UpdateFlag = YES
+
+[create_day_file]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether meter build every day value
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[create_month_file]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = ENUM
+Desc = whether meter build every month value
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[meter_bill_date]
+SectList = switch%switch ID%^switch%switch ID%_col_dir%dir ID%
+Relation = 
+Type = NUM
+Desc = The data of meter build every month value
+Default = 21
+MustFlag = NO
+UpdateFlag = YES

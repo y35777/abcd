@@ -1,0 +1,4 @@
+#ifndef _NETBASE_RESOURCE_H
+#define _NETBASE_RESOURCE_H
+
+#endif //_NETBASE_RESOURCE_H

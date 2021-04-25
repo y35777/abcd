@@ -1,0 +1,5 @@
+#ifndef _CDR_STAT_RESOURCE_H_
+#define _CDR_STAT_RESOURCE_H_
+
+#endif //_CDR_STAT_RESOURCE_H_
+

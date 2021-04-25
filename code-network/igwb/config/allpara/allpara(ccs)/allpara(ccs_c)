@@ -1,0 +1,539 @@
+[switch_count]
+SectList = system
+Relation = &switch%采集点号%
+Type = NUM
+Desc = 采集进程的采集任务个数。
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[begin_time]
+SectList = system^switch%采集点号%
+Relation = 
+Type = STR
+Desc = 采集任务开始时间。周期采集时用，格式为HH:MM。
+Default = 00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[end_time]
+SectList = system^switch%采集点号%
+Relation = 
+Type = STR
+Desc = 采集任务结束时间。周期采集时用，格式为HH:MM。
+Default = 23:59
+MustFlag = NO
+UpdateFlag = YES
+
+[col_suc_cycle]
+SectList = system^switch%采集点号%
+Relation = 
+Type = NUM
+Desc = 采集周期,周期采集时用，单位为秒。
+Default = 600
+MustFlag = YES
+UpdateFlag = YES
+
+[min_col_cycle]
+SectList = system
+Relation = 
+Type = NUM
+Desc = 采集最小周期,周期采集时用，单位为秒。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[col_list_time]
+SectList = system^switch%采集点号%^
+Relation = 
+Type = STR
+Desc = 采集时间列表。定时采集时用，格式为HH:MM，序列之间用','分隔
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[once_col_list_time]
+SectList = system^switch%采集点号%
+Relation = 
+Type = STR
+Desc = 一次性采集时间列表，指定的时间只会执行一次采集，执行后此次时间将被删除。格式为YYYY-mm-DD HH:MM:SS，序列之间用','分隔
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[col_fail_cycle]
+SectList = system^switch%采集点号%
+Relation = 
+Type = NUM
+Desc = 采集失败后重采的时间间隔，单位为秒。
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[file_col_count]
+SectList = system^switch%采集点号%
+Relation = 
+Type = NUM
+Desc = 文件重采次数。在一次采集中，采集一个文件失败后，重采此文件的次数。
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[cnt_fail_cycle]
+SectList = system^switch%采集点号%
+Relation = 
+Type = NUM
+Desc = 连接失败后重连的时间间隔，单位为秒。
+Default = 120
+MustFlag = NO
+UpdateFlag = YES
+
+[orig_file_save_days]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 原始话单文件保存天数。原始话单文件在本地保存的天数。
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[final_file_save_days]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 最终话单文件保存天数。最终话单文件在本地保存的天数。
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[check_sn]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否检查文件的序列号。0为不检查，非0为检查。
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[check_sn_depth]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 漏采检查深度。有漏采文件时，多少个文件后报告此漏采文件。
+Default = 20
+MustFlag = NO
+UpdateFlag = YES
+
+[collect_name]
+SectList = switch%采集点号%
+Relation = 
+Type = STR
+Desc = 采集任务名称
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[collect_type]
+SectList = switch%采集点号%
+Relation = 
+Type = ENUM
+Desc = 采集任务类型。如5ESS:采集5ESS交换机上的文件,S1240:采集S1240交换机上的文件,CC08:采集CC08交换机上的文件,ZXJ:采集中兴交换机上的文件,TELLIN:采集智能话单文件,METER_CC08:采集CC08交换机上的计次表底。
+Default = :5ESS,S1240,CC08,ZXJ,TELLIN,METER_CC08
+MustFlag = YES
+UpdateFlag = YES
+
+[protocol_factory]
+SectList = switch%采集点号%
+Relation = 
+Type = ENUM
+Desc = 协议类型。FTP协议,FileScan协议
+Default = :FTP,FileScan
+MustFlag = YES
+UpdateFlag = YES
+
+[link_count]
+SectList = switch%采集点号%
+Relation = &switch%采集点号%_link%链路号%
+Type = NUM
+Desc = 链路数目
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[file_len_verify]
+SectList = system^switch%采集点号%
+Relation = 
+Type = ENUM
+Desc = 是否进行文件长度校验。采集到本地的文件长度是否和交换机上得到的长度一致。(0:不校验,1:校验)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_level_verify]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否对话单文件进行文件级校验。(0:不校验,1:校验)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_level_err_recol]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 文件级校验错误后，是否对话单文件进行自动重采。(0:不重采,1:重采)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[bill_level_verify]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否对话单文件进行话单级校验。(0:不校验,1:校验)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[bill_level_err_recol]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 话单级校验错误后，是否对话单文件进行自动重采。(0:不重采,1:重采)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[create_zero_final_file]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否生成0字节的最终话单文件(0:不生成,1:生成)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[force_col_all_file]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否能重复采集所有文件0为不重复采集，1为每次都采集所有文件
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[orig_bill_len]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 原始话单的长度CC08必配，目前对其他产品无效。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[final_dir]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 最终话单目录
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[module_label]
+SectList = switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 模块名称
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_dir]
+SectList = switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 交换机对应的本地根目录名
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[remote_dir]
+SectList = switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 话单文件在交换机上的目录。
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[bill_type]
+SectList = switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 话单类型.Meter:记次话单,Detail:详细话单,Other：其他类型
+Default = :Meter,Detail,CC08,Other
+MustFlag = NO
+UpdateFlag = YES
+
+[remote_addr]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = IP
+Desc = 远端交换机的地址。
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[remote_user]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 登录交换机的用户名。
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[remote_pwd]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 登录交换机的密码。
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_addr]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = IP
+Desc = 本机连接交换机的地址
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[local_user]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 登录本机的用户名。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[local_pwd]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 登录本机的密码。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[dev_name]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 用于连接交换机的物理设备名称。X.25链路采集时使用。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[trans_speed]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = STR
+Desc = 此链路的传输速度，用于决定采集文件的超时时间。 X.25链路采集时使用。 
+Default = 6
+MustFlag = NO
+UpdateFlag = YES
+
+[alarm_para]
+SectList = switch%采集点号%_link%链路号%
+Relation = 
+Type = NUM
+Desc = 此链路的异常时的告警参数。十位表示物理设备的编号，各位表示端口号。
+Default = -1
+MustFlag = NO
+UpdateFlag = YES
+
+[office_num]
+SectList = switch%采集点号%
+Relation = 
+Type = NUM
+Desc = 交换局号
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[switch_code]
+SectList = switch%采集点号%
+Relation = 
+Type = STR
+Desc = 交换机代码
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[pri_link]
+SectList = switch%采集点号%
+Relation = &switch%采集点号%_link%链路号%
+Type = STR
+Desc = 主链接的名称。
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[bak_link]
+SectList = switch%采集点号%
+Relation = &switch%采集点号%_link%链路号%
+Type = STR
+Desc = 备链接的名称。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[del_remote_file]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否在采集后删除交换机上的文件(0：不删除，1：删除)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[col_last_file]
+SectList = system^switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 是否采集交换机上的最后一个文件。(1：采集，0：不采集)。
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[col_dir_count]
+SectList = switch%采集点号%
+Relation = &switch%采集点号%col_dir%模块号%
+Type = NUM
+Desc = 交换机上要被采集的目录数(默认值: 0 )。
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[file_sn_len]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 交换机上话单文件的序列号长度。(默认值: 8 )。
+Default = 8
+MustFlag = NO
+UpdateFlag = YES
+
+[file_postfix_len]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 交换机上话单文件的后缀长度。
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[postfix_filter_mode]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 0为不采集指定的后缀，1为只采集指定的后缀
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_postfix]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 交换机上话单文件的后缀列表。后缀之间用","分隔，不配置表示不对后缀进行任何过滤。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[prefix_filter_mode]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 0为不采集指定的前缀，1为只采集指定的前缀
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[file_prefix]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = STR
+Desc = 交换机上话单文件的前缀列表。前缀之间用","分隔，不配置表示不对后缀进行任何过滤。
+Default = 
+MustFlag = 
+UpdateFlag = YES
+
+[file_sn_uplimit]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 交换机上话单文件的序列号上限。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[file_sn_downlimit]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 交换机上话单文件的序列号下限。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[trans_mode]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 文件的传送模式，有asc和bin两种模式。只在protocol_factory为FTP时有效。
+Default = asc:asc,bin
+MustFlag = NO
+UpdateFlag = YES
+
+[meter_uplimit]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = BAM的计次表达到这个设定的最大值的时候会翻转
+Default = 100000000
+MustFlag = NO
+UpdateFlag = YES
+
+[create_day_file]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 记次表底是否产生日净值
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[create_month_file]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = ENUM
+Desc = 记次表底是否产生月净值
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[meter_bill_date]
+SectList = switch%采集点号%^switch%采集点号%_col_dir%模块号%
+Relation = 
+Type = NUM
+Desc = 记次表产生底月净值的日期
+Default = 21
+MustFlag = NO
+UpdateFlag = YES

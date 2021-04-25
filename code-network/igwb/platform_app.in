@@ -1,0 +1,5 @@
+LINKFLAGS  := $(LINKFLAG_OS)
+OUTPUT_EXT  = 
+OUTPUT_DIR  = ../../output
+ACE_LIBS   := $(ACE_LIBS_OS)
+TOTAL_LIB  := -L../../com/lib $(LINK_LIB) $(ACE_LIBS)

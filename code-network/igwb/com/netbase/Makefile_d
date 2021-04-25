@@ -1,0 +1,31 @@
+
+# 定义CC编译器和编译开关
+CCC     = /opt/SUNWspro/bin/CC
+CCFLAGS = -mt -g -I. -I$(ACE_ROOT)
+
+
+#定义MAKE规则
+OBJ       = .output/libnetbase.a	
+TMP_OBJ   = .obj/
+LIB_DIR   = ../lib
+SOURCES   = $(wildcard *.cpp *.c)
+OBJS      = $(patsubst %.cpp, .obj/%.o, $(patsubst %.c, .obj/%.o, $(SOURCES))) 
+	
+
+# 连接最终目标文件 
+$(OBJ): mkdir $(OBJS) 
+	$(CCC) -xar -o $(OBJ) $(OBJS) 
+	mv $(OBJ) $(LIB_DIR) 
+
+# 编译目标文件 
+.obj/%.o : %.cpp
+	$(CCC) -c $(CCFLAGS) $< -o $@
+
+# 清除生成的目标文件，在利用"make clean"命令时有效 
+clean:
+	rm -f $(OBJS) $(OBJ)
+	rm -f core
+
+mkdir:
+	if (test -d .obj) ; then pwd ; else mkdir .obj ; fi
+	if (test -d .output) ; then pwd ; else mkdir .output ; fi

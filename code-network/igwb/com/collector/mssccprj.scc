@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[collector.dsp]
+SCC_Aux_Path = "\\szxvss13-db\SW2_VSS\iGWB"
+SCC_Project_Name = "$/iGWB V200配置库/代码库/iGWB V200R002B02/服务器端/com/collector", ZGBFAAAA
+
+[collector.mak]
+SCC_Aux_Path = "\\szxvss13-db\SW2_VSS\iGWB"
+SCC_Project_Name = "$/iGWB V200配置库/代码库/iGWB V200R002B02/服务器端/com/collector", ZGBFAAAA

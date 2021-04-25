@@ -1,0 +1,25 @@
+kill -15 ` ps -ef | grep -e "cls_proc" | grep -v grep| grep -v sbin| awk '{print $2}'`
+
+while true; do
+
+COUNT="`ps -ef|grep "cls_proc"|grep -v grep |wc |awk '{print $1}'`"
+if [ $COUNT != 0 ]; then
+#   echo "cls_proc is running!"
+   sleep 1
+   continue
+else
+#   echo "cls_proc stopped!"  
+   break
+fi
+
+done
+
+sleep 2
+
+kill -9 ` ps -ef | grep -e "./vftam" | grep -v grep| grep -v sbin| awk '{print $2}'`
+
+kill -9 ` ps -ef | grep -e "./vcmise" | grep -v grep| grep -v sbin| awk '{print $2}'`
+
+echo "cls_proc stopped!"
+
+exit 0

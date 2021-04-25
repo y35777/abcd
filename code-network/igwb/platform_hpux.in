@@ -1,0 +1,14 @@
+# 定义HPUX的CC编译器和编译开关
+CCC              = aCC
+LINKER           = aCC 
+LIBLINKER        = ar
+ccc              = aCC
+CCFLAGS          = -I. -I$(ACE_ROOT) -D_PLATFORM_HPUX -AA -DACE_HAS_STANDARD_CPP_LIBRARY=1 -D_RWSTD_MULTI_THREAD -D_REENTRANT -DACE_HAS_THREADS -D_POSIX_C_SOURCE=199506L -DHPUX_VERS=1111 -DACE_LACKS_PRAGMA_ONCE -D_HPUX_SOURCE +W302 +DAportable
+SHLIBEXT         = .sl
+ACE_LIBS_OS      = -L$(ACE_ROOT)/ace -L. -lACE -lnsl -lgen -Wl,+s -lxti -lpthread -lrt -ldld
+KPIC_OS          = +Z
+XML_INC_OS      := -I$(XERCESCROOT)/include
+XML_LIBS_OS     := -L$(XERCESCROOT)/lib -lxerces-c -lstream -lCsup -lC
+LINKFLAGS_DLL_OS = -b -o
+LINKFLAGS_LIB_OS = -rv
+LINKFLAG_OS     := $(CCFLAGS) -z -D_POSIX_PTHREAD_SEMANTICS -o

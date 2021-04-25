@@ -1,0 +1,1838 @@
+[APCount]
+SectList = Common
+Relation = &AccessPoint%AP Index%
+Type = NUM
+Desc = Number of Access Point.
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToMsg]
+SectList = Common
+Relation = 
+Type = NUM
+Desc = TCP port for Inter-Process Communication.
+Default = 9999
+MustFlag = NO
+UpdateFlag = YES
+
+[ClusterMode]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = Running mode (1-Cluster Mode,0-Single Server Mode,instead of NoCluster after V200R002C02).
+Default = 0:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[NoCluster]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = Whether or not the single server mode(0-Cluster Mode,1-Single Server,Used before V200R002C01)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = NO
+
+[ServerNo]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = Node ID (0-Primary,1-Secondary).
+Default = 0:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[MSGOUTLevel]
+SectList = Common
+Relation = 
+Type = NUM
+Desc = Level of debug message output(range:0-15).
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[XmlFontSet]
+SectList = Common
+Relation = 
+Type = STR
+Desc = Font set in encoding XML document
+Default = ISO8859-1
+MustFlag = NO
+UpdateFlag = YES
+
+[AddModuleNum]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = add a byte to cc08 CDR's first,show a module's number.0:no,1:yes
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CodeKeyCount]
+SectList = AccessPoint%AP Index%
+Relation = &CodeKey%CodeKey Index%
+Type = NUM
+Desc = Number of service key code group(Only used in NGN,configurated in scp_config.ini).
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[CodeKey%CodeKey Index%]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = service key code(Only used in NGN,configurated in scp_config.ini)
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[NICount]
+SectList = AccessPoint%AP Index%
+Relation = &DPC%DPC index%
+Type = NUM
+Desc = Number of network ID(Only used in NGN,configurated in scp_config.ini).
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[DPC%DPC index%]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = Network ID(Only used in NGN,configurated in scp_config.ini)
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[APType]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Type of Access Point(-1-INVALID, 0-128, 1-MSC, 2-STP, 3-PacketSwitch, 5-SOFTX, 6-WLAN).
+Default = -1:-1,0,1,2,3,5,6
+MustFlag = YES
+UpdateFlag = YES
+
+[CollectType]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Collection type (0-AccessPoint,1-S1240,2-5ESS,3-EWSD,4-CC08,5-ZXJ10,6-SMP).
+Default = 0:0,1,2,3,4,5,6
+MustFlag = NO
+UpdateFlag = YES
+
+[CollectCfgPath]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = Config path of Collection AccessPoint.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[APName]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = AccessPoint name(Attention: this value can only be modified during creating AccessPoint).
+Default =
+MustFlag = YES
+UpdateFlag = YES
+
+[Release]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = The release of 3GPP, needed when APType is 3(PacketSwitch).
+Default = R98:R98,R99,R4
+MustFlag = NO
+UpdateFlag = YES
+
+[FmtDll]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = The dynamic link library to parse ASN.1 CDR, needed when APType is 3(PacketSwitch).
+Default = :r98_760,r98_770,r99_360,r99_3a0,r4_440
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalSPFileFmt]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = whether or not special format used in finnal CDRs files (0-normal,1-special).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Redistribute]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = whether distributed multi-channel for A CDRS of original CDRs file (0-no,1-yes)¡£
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRCheckSpan]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Interval triggering alarm, which mistaken CDRs amount to CDRCheckCount were detected (Unit: second).
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRCheckCount]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Mistaken CDRs count triggering alarm, which were detected in period of CDRCheckSpan(Unit: second).
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[MustMerge]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = CDR Merge trigger, only used for Packet Switch domain (0-no, 1-yes).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxPackageSize]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Maximum size of each CDR package (Unit: KB).
+Default = 5000 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxNewFrmCount]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Maximum number of received packages (Unit: KB).
+Default = 1500
+MustFlag = NO
+UpdateFlag = YES
+
+[LowAtTime]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Interval of low tide CDR package (Unit: millisecond).
+Default = 1500 
+MustFlag = NO
+UpdateFlag = YES
+
+[LowAtSize]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Package size of low tide CDR package (Unit: KB).
+Default = 1024 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxEmptyPackage]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Maximum number of empty package when auxiliary upgrade.
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[UdpTcpMask]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Mask code to control which protocol will be used in Ga.(0-none of UDP and TCP,1-UDP,2-TCP,3-both of UDP and TCP)
+Default = 3:0,1,2,3
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToEx]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = Local IP address used by Access Point to comunicate with switch.
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIpToExBak]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = The secondary local IP address used by Access Point to communicate with switch.
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToEx]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = TCP/UDP port used to communicate with switch.
+Default = 3386
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToExBak]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Secondary TCP/UDP port used to communicate with switch.
+Default = 3386
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToExUdp]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = Local IP address used to comunicate with switch(Configurated only if UDP IP is different from TCP IP).
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIpToExBakUdp]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = The secondary local IP used to communicate with switch(Configurated only if UDP IP is different from TCP IP).
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = NO
+
+[LocalPortToExUdp]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = UDP port used to communicate with switch(Configurated only if UDP Port is different from TCP Port).
+Default = 3386
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToExBakUdp]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Secondary UDP port used to communicate with switch(Configurated only if UDP Port is different from TCP Port).
+Default = 3386
+MustFlag = NO
+UpdateFlag = YES
+
+[MultiIPGsnCount]
+SectList = AccessPoint%AP Index%
+Relation = &GsnIPTable%Gsn Table Index%
+Type = NUM
+Desc = GSN IP address table count.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[GsnIPTable%Gsn Table Index%]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = GSN IP address table.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DelGsnIP]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = IP addresses of GSN that have been deleted.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[RedirAddress]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = IP address for CDR redirection.
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = YES
+
+[HisFrmCount]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Total number of received frames.
+Default = 1500
+MustFlag = NO
+UpdateFlag = YES
+
+[EchoReqInv]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = The interval of sending the Echo_Request frame. Unit: second, Range: 0-300. 
+Default = 60
+MustFlag = NO
+UpdateFlag = YES
+
+[ReqTimeOut]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = The interval of sending the Request frame. Unit: second,Range: 1,2,4,8.
+Default = 2
+MustFlag = NO
+UpdateFlag = YES
+
+[TimeOutRpt]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Number of Sending Echo Request message if failed to recieve response.Range: 1-6.
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[LinkTimeOut]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Timeout of link failure.(unit: second) 
+Default = 6
+MustFlag = NO
+UpdateFlag = YES
+
+[MpuWindowSize]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Slide window of MPU board. 
+Default = 150
+MustFlag = NO
+UpdateFlag = YES
+
+[BauWindowSize]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Slide window size of iGWB.
+Default = 2000
+MustFlag = NO
+UpdateFlag = YES
+
+[BillRecSize]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = CDR size. Unit: byte
+Default = 261 
+MustFlag = NO
+UpdateFlag = YES
+
+[GsnIp]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = IP
+Desc = GSN's IP address to access CG.
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[GtpBufLimit]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Range of GTP buffer. Unit: byte, Range: 2048£­65535
+Default = 8192
+MustFlag = NO
+UpdateFlag = YES
+
+[IpFilterMode]
+SectList = AccessPoint%AP Index%^MML
+Relation = 
+Type = ENUM
+Desc = IP address filter mode. (0-limit,1-no limit,2-invalid)
+Default = 2:0,1,2
+MustFlag = NO
+UpdateFlag = YES
+
+[IPNumber]
+SectList = AccessPoint%AP Index%^MML
+Relation = &IP%IP Index%
+Type = NUM
+Desc = Number of limited IP addresses
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[IP%IP Index%]
+SectList = AccessPoint%AP Index%^MML
+Relation = 
+Type = IP
+Desc = Limited IP addresses
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[BinAlarmSend]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Send binary alarm flag. (0-no,1-yes)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BaseID]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Base alarm ID(3200 will be filled in NGN).
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmShield]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = Alarm ID mask (Only use to binary alarm interface).
+Default = 111111111111111111111
+MustFlag = NO
+UpdateFlag = YES
+
+[SendAlarmTimeOut]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Time-out of sending binary alarm(Unit:second).
+Default = 20
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmBoxUsingMode]
+SectList = Alarm
+Relation = 
+Type = NUM
+Desc = The mode connects by alarmbox(0-no alarmbox£»1-by LMT£»2-by CG£»3-by LMT and LG)
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmBoxPortName]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = The port conneted by alarmbox(UNIX: /dev/term/b,,Windows:COM2)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[ProcAllAPAlarm]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Process binary alarm of all access points or not(0-no,1-yes).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MustConvert]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Convert format or not(0-no,1-yes).
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxWaitUsrs]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Maximum number of waiting users when merging a telepone bill.
+Default = 200000
+MustFlag = NO
+UpdateFlag = YES
+
+[SupportDST]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Flag of supporting daylight saving time (0-no, 1-yes).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackSavePatchName]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = Flag of supporting Motorola BS file format.
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[UseInCMCC]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Use filename flag with Sequence Number (0-no, 1-yes).
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckOMField]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Check OM Field or not(0-no,1-yes,used in 3GPP R4 only)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[OMFieldCfgFile]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = File path configurated for OM field(default descripted in 3GPP R4 doc,used in 3GPP R4 only)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[UseXml]
+SectList = Perf^Log^CdrStat^Alarm
+Relation = 
+Type = ENUM
+Desc = whether or not using XML document(0-XML not used,1-XML used)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[StatBeginTime]
+SectList = CdrStat
+Relation = 
+Type = STR
+Desc = beginning time of cdr stat(format HH:MM:SS)
+Default = 02:00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[StatBillType]
+SectList = CdrStat
+Relation = 
+Type = ENUM
+Desc = bill type of cdr stat(0-Original CDR,1-final CDR)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[LicenseDir]
+SectList = License
+Relation = 
+Type = STR
+Desc = License directory
+Default = ./config/license
+MustFlag = NO
+UpdateFlag = YES
+
+[LicenseTimer]
+SectList = License
+Relation = 
+Type = NUM
+Desc = License validation checking period(range:10-600s)
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[LogSaveDays]
+SectList = Log
+Relation = 
+Type = NUM
+Desc = Days to keep log file (Unit: day).
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[LogRootDir]
+SectList = Log
+Relation = 
+Type = STR
+Desc = Directory to keep log file(UNIX: /var/other/log,Windows: d:\other\log).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[ArchiveTime]
+SectList = Log
+Relation = 
+Type = STR
+Desc = the time of archiving log files(Usage:HH:MM:SS)
+Default = 02:00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[ArchiveDir]
+SectList = Log
+Relation = 
+Type = STR
+Desc = the objective direction of log files archiving(UNIX: /var/other/log_archive,Windows: d:\other\log_archive)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUSTVER]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = Sun Cluster version(Only used in SUN Solaris platform).
+Default = 3.0:2.2,3.0
+MustFlag = NO
+UpdateFlag = YES
+
+[HeartBeatBroken]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = Time-out of heartbeat.Unit: second.
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[InstallShareDiskArray]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = Flag of using shared disk array (0-no,1-yes).
+Default = 1:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[HeartBeatCount]
+SectList = Cluster
+Relation = &Link%Link Index%
+Type = NUM
+Desc = Number of heartbeat link.
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[ResourceCount]
+SectList = Cluster
+Relation = &Resource%Res Index%
+Type = NUM
+Desc = Number of shared cluster resources.
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[AsynResActiveTimeOut]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = Timeout for asynchronous cluster resource active operation (Unit: second).
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[AsynResDeActiveTimeOut]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = Timeout for synchronous cluster resource Deactive operation (Unit: second).
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[MinActiveInv]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = Minimum interval between two active operation (Unit: second).
+Default = 120
+MustFlag = NO
+UpdateFlag = YES
+
+[SwitchMode]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = Auto-switch or not(0-yes,1-no)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxActiveFailTimes]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = Maximum counts of activing unsuccessfully
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[ResType]
+SectList = Resource%Res Index%
+Relation = 
+Type = ENUM
+Desc = Resource type(IP-Virtual IP,Volume-Common shared RAID,IBMVolume-IBM shared RAID)
+Default = :IP,Volume,IBMVolume
+MustFlag = YES
+UpdateFlag = YES
+
+[ResName]
+SectList = Resource%Res Index%
+Relation = 
+Type = STR
+Desc = Resource name
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[StaticsRes]
+SectList = Resource%Res Index%
+Relation = 
+Type = ENUM
+Desc = Static resource or not(0-no,1-yes)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[SwitchGroup]
+SectList = Resource%Res Index%
+Relation = 
+Type = NUM
+Desc = Group number of resource
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalRecovery]
+SectList = Resource%Res Index%
+Relation = 
+Type = NUM
+Desc = Number of Local Recovery.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[OriginIP]
+SectList = Resource%Res Index%
+Relation = 
+Type = IP
+Desc = Original IP address.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[VirtualIP]
+SectList = Resource%Res Index%
+Relation = 
+Type = IP
+Desc = Virtual IP address.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[VirtualMask]
+SectList = Resource%Res Index%
+Relation = 
+Type = IP
+Desc = Virtual IP address mask.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckDisConn]
+SectList = Resource%Res Index%
+Relation = 
+Type = ENUM
+Desc = Check network cable link status or not(1-Checked,0-not Checked).
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Type]
+SectList = Link%Link Index%
+Relation = 
+Type = ENUM
+Desc = Type of heartbeat link (UDP: indicating network cable, COM: indicating COM port heartbeat).
+Default = UDP:UDP,COM
+MustFlag = YES
+UpdateFlag = YES
+
+[Name]
+SectList = Link%Link Index%
+Relation = 
+Type = STR
+Desc = Link name.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIP]
+SectList = Link%Link Index%
+Relation = 
+Type = IP
+Desc = Local IP address of heartbeat link.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[PeerIP]
+SectList = Link%Link Index%
+Relation = 
+Type = IP
+Desc = Peer IP address of heartbeat link.
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[Port]
+SectList = Link%Link Index%
+Relation = 
+Type = ENUM
+Desc = IP port of link (UDP=11228,COM=1 or 2).
+Default = 11228:1,2,11228
+MustFlag = NO
+UpdateFlag = YES
+
+[SERVICERES]
+SectList = AgentAlarm
+Relation = 
+Type = STR
+Desc = Services name.
+Default = FTP
+MustFlag = NO
+UpdateFlag = YES
+
+[TRACEDebug]
+SectList = Alarm
+Relation = 
+Type = ENUM
+Desc = Write trace file or not when alarming (0-no,1-yes).
+Default = 0:0,1 
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmHistoryPath]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = Full path name of historical alarm (UNIX: /var/other/alarm,Windows: d:\other\alarm).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestFilesSaveDays]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Saving days of backupped files in remote host.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[SearchFilesInterval]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Period of scanning backup files of the backup module (unit: second, range: 30 - 604800(7days)).
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[ReConnectInterval]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Interval to reconnect the destination when backuping unsuccessfully, unit is second(1-3600).
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupRetryTimes]
+SectList = NetBackup
+Relation = 
+Type = NUM
+Desc = Reconnectible counts when backuping unsuccessfully(0-5).
+Default = 2
+MustFlag = NO
+UpdateFlag = YES
+
+[SourceDir]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = Source full path to backup(Unix: /var/frontsave,Windows: d:/frontsave).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestDir]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = Destination full path to backup(Unix: /var/frontsave/backup,Windows: d:/frontsave/backup).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestHostIP]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = IP
+Desc = Destination IP address of backup machine.Local backup should be "Local".
+Default = 127.0.0.1 
+MustFlag = YES
+UpdateFlag = YES
+
+[DestHostIPBak]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = IP
+Desc = Destination secondary IP address of backup machine.
+Default = 127.0.0.1 
+MustFlag = NO
+UpdateFlag = YES
+
+[DelAfterBak]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = ENUM
+Desc = Delete source files after backup or not(0-no,1-yes)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupLastFile]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = ENUM
+Desc = Backup last file or not(0-no,1-yes).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupTimeout]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Time-out of backup. Unit: second, Range: 60£­605000.
+Default = 3000
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupTaskCount]
+SectList = NetBackup
+Relation = &BackupTask%Task Index%
+Type = NUM
+Desc = Number of backup tasks.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[UserName]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = User name for FTP (less than 255 characters).
+Default = anonymous
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIP]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = IP
+Desc = Local IP address used to connect FTP Server.
+Default = 127.0.0.1
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIPBak]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = IP
+Desc = Local secondary IP address used to connect FTP Server.
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[BeforeEncode]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = ENUM
+Desc = It indicates that the password is encrypted or not.(0-encrypted,1-not encrypted).If it is "1",Application will encrypt password and change it to 0.
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Password]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = FTP user password.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupStatusFile]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = Full path to backup status files(d:\StatusFile\Status or var/other/statusfiles).
+Default = 
+MustFlag = NO
+UpdateFlag = NO
+
+[FileSaveDays]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Saving days of source files.
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[FilePoolID]
+SectList = BackupTask%Task Index%
+Relation = 
+Type = NUM
+Desc = Backup task file-pool ID(-1:the task has indepent ID from others)
+Default = -1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogEnable]
+SectList = NetBackup^BackupTask%Task Index%^DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = ENUM
+Desc = Open audit function of CDR files(0-disable,1-enable)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLabel]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = the label of audit log file(channel label is default)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogDestDir]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = the destinaton direction in the remote host to save audit file
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_begin_time]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = an appointed begin time for backup
+Default = 00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_end_time]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = an appointed end time for backup
+Default = 23:59
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_list_time]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = time list of backup
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[FtpIsPassive]
+SectList = Common^AccessPoint%AP Index%^NetBackup^BackupTask%Task Index%
+Relation = 
+Type = ENUM
+Desc = FTP Client support Passive and Port Mode(0:Port,1:Passive) 
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToMMLClient]
+SectList = MML
+Relation = 
+Type = IP
+Desc = Local IP address used to connect to MML client.
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[PersistUser]
+SectList = MML
+Relation = 
+Type = STR
+Desc = Directory for MML user information storage.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToCM]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = TCP port used for maintenance message output.
+Default = 6000
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToAR]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = TCP port used for alarm message output.
+Default = 6001 
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToPF]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = TCP port used for performance output
+Default = 6002
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToRD]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = TCP port used for debug message output.
+Default = 6007
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxUserNumber]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = Maximum number of MML user. Range: 1-30.
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxConnectUserNumber]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = Maximum numbers of MML client connection.
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[LoginFailCount]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = Maximum counts of MML user failing to login. Range: 3-6.
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[PerfSaveDays]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Saving days of performance log files
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[StatInterval]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Interval of checking disk spaces. Unit: second.
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[MonitorPeriod]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Period of performance statistic. Unit: second. Range: 5-60sec.
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[CPUMaxLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Upper limit of CPU's over loading(70%-90%).
+Default = 70
+MustFlag = NO
+UpdateFlag = YES
+
+[CPUMinLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Lower limit of CPU's over loading(25%-50%).
+Default = 45
+MustFlag = NO
+UpdateFlag = YES
+
+[MemeoryMaxLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Upper limit of Memory's overload (70-90).
+Default = 80
+MustFlag = NO
+UpdateFlag = YES
+
+[MemeoryMinLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Lower limit of Memory's overload (20-50).
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[MemoryMidLimit]
+SectList = Perf
+Relation =
+Type = NUM
+Desc = Limit of Memory's overload recoverd(50-80)¡£
+Default = 60
+MustFlag = NO
+UpdateFlag = YES
+
+[MeanValueSpan]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = Period of mean value(5-250).
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[PageSize]
+SectList = OM
+Relation = 
+Type = NUM
+Desc = CDR number per page when CDR browsing.
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[DisplayErrBill]
+SectList = OM
+Relation = 
+Type = ENUM
+Desc = Trigger of incorrect CDR display.(0-not display,1-display).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontSaveRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = Diectory for original CDR file stroage. (UNIX:/var/frontsave,Windows:d:\frontsave).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BackSaveRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = Directory for final CDR file storage. (UNIX:/var/backsave,Windows:e:\backsave).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MainStatusRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = Primary status files directory. (UNIX:/var/frontsave,Windows:d:\StatusFile).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BakStatusRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = Secondary status file directory.(UNIX:/var/backsave,Windows:e:\StatusFileB).
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[StatusBackupSrcDir]
+SectList = DiskFile^NetBackup
+Relation = 
+Type = STR
+Desc = Backup directory of status file.(UNIX: /var/other/statusfiles, Windows: d:\StatusFile\Status).
+Default = 
+MustFlag = NO
+UpdateFlag = NO
+
+[OrigFileMaxSize]
+SectList = DiskFile^AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Normal size of an original CDR file(unit:KB, range:3M -- 20M)
+Default = 3072
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalFileMaxSize]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Final CDR file size limit (Unit: KB, range: 64KB-20MB).
+Default = 1024
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalFileMaxTime]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Final CDR file open-time limit (Unit: second, range: 5-3600).
+Default = 1800
+MustFlag = NO
+UpdateFlag = YES
+
+[CsnLen]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Length of sequence number of final CDR file.
+Default = 8
+MustFlag = NO
+UpdateFlag = YES
+
+[StartCsn]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Initial sequence number of final CDR file.
+Default = 1
+MustFlag = NO
+UpdateFlag = YES
+
+[CsnStep]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Step increment for final CDR file sequence number.
+Default = 1
+MustFlag = NO
+UpdateFlag = YES
+
+[Prefix]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = STR
+Desc = Prefix of final CDR file name.
+Default = b
+MustFlag = NO
+UpdateFlag = YES
+
+[Postfix]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = Postfix of final CDR file name
+Default = dat
+MustFlag = NO
+UpdateFlag = YES
+
+[Infix]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = STR
+Desc = Infix of final CDR file name
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[SaveSecond]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = ENUM
+Desc = Flag for secondary final CDR storage (0-1 copy, 1-2 copies).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[HotSaveSecond]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = ENUM
+Desc = whether to save the second CDR in real time(0:Generated after closing temporary file,1:CDR saved to temporary file and second file simultaneously) 
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[FetchFileTimeOut]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Timeout value for Billing System getting CDR files ( Unit: minute).
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[DeadLineOfAutoDel]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Local CDR storage days before auto-deleted (Unit: day, range: 7-180).
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRFilter]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = STR
+Desc = CDR filter condition.
+Default = None
+MustFlag = NO
+UpdateFlag = YES
+
+[MMLAlarmShield]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = Alarm ID mask (Only use to MML alarm interface).
+Default = 111111111111111111111
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogPrefix]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = STR
+Desc = Prefix of the audit log file
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogPostfix]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = STR
+Desc = Postfix of the audit log file
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MinorDiskAlarmRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = Required size of the partition where the front/back save disk is installed, for triggering minor alarms(unit:%)
+Default = 15
+MustFlag = NO
+UpdateFlag = YES
+
+[NodeAliveReqInv]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = interval time(S) of Send Node Alivet Frame
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxWaitPackages]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Max Waiting Package Number of Merge Bill
+Default = 10800
+MustFlag = NO
+UpdateFlag = YES
+
+[ProcBillCSN]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = ENUM
+Desc = Add 4 Bytes Bill CSN in the head of Bill by Channel, and ensure the CSN is continuous? 
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MinDiskAlarmRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = Required size of the partition where the front/back save disk is installed, for triggering severe alarms(unit:%)
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[MinDiskHandoverRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = Required size of the partition where the front/back save disk is installed, for triggering handover(unit: M)
+Default = 400
+MustFlag = NO
+UpdateFlag = YES
+
+[MinBakDeviceRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = Min Alarm Space{M) of backup medium
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxFlushSpan]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = Max Flush Package Interval of backsave
+Default = 80
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckSumPos]
+SectList = DiskFile^AccessPoint%AP Index%^Channel%AP Index%-%CHL Index%
+Relation = 
+Type = NUM
+Desc = the position of checksum field in the finally bill (from 1 start by the unit of byte)
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToAlarmBox]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = the port connectted with the convert model(AlarmBox)
+Default = 6100
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToSynConf]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = TCP port used for message output to M2000 when user lgi or lgo .  
+Default = 6099
+MustFlag = NO
+UpdateFlag = YES
+
+
+[once_bk_list_time]
+SectList = NetBackup^BackupTask%Task Index%
+Relation = 
+Type = STR
+Desc = one-off backup timetable,do onetime backup task in the time and delete the time after backup.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[PerfRootDir]
+SectList = Perf
+Relation = 
+Type = STR
+Desc = the path of perf data file (UNIX:/var/other/perf,Windows:d:\other\perf)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[IsDebug]
+SectList = Kernel
+Relation =
+Type = NUM
+Desc = whether or not Debug mode(1:Yes, 0:NO)
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUSTPATH]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = cluster software installed path
+Default = /etc/opt/SUNWcluster
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUST]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = the Cluster Name of SC
+Default = sc-igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[LOGHOST]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = Logic HostName
+Default = ha-igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[DATASERVICE]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = high usable data service name
+Default = igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontVolume]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = frontsave logic volume
+Default = front
+MustFlag = NO
+UpdateFlag = YES
+
+[BackVolume]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = backsave logic volume
+Default = back
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontDG]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = disk group where the frontsave is at
+Default = igwbdg
+MustFlag = NO
+UpdateFlag = YES
+
+[BackDG]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = disk group where the backsave is at
+Default = igwbdg
+MustFlag = NO
+UpdateFlag = YES
+
+[StaticRes]
+SectList = Resource%Res Index%
+Relation = 
+Type = NUM
+Desc = whether or not static resource
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[OrginalIP]
+SectList = Resource%Res Index%
+Relation = 
+Type = STR
+Desc = Original IP connect with NGN
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[AlarmId]
+SectList = Resource%Res Index%
+Relation = 
+Type = NUM
+Desc = config Alarm ID. 5:HeartBear Alarm,7:Cluster HandOver Alarm,9:private net halt Alarm,11:resource abate Alarm,13:IP resource abate,15:volume resource abate,17:disk fault
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmPara]
+SectList = Resource%Res Index%
+Relation = 
+Type = NUM
+Desc = config alarm param, fill with resource No.
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[Service]
+SectList = Resource%Res Index%
+Relation = 
+Type = STR
+Desc = service name£¨only used by service resource£©
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[AppPath]
+SectList = Resource%Res Index%
+Relation = 
+Type = STR
+Desc = application path name£¨only used by application resource£©
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[Volume]
+SectList = Resource%Res Index%
+Relation = 
+Type = STR
+Desc = volume name (only used by disk array resource,note: must be equal to driver volume)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxDuration]
+SectList = AccessPoint%AP Index%
+Relation = 
+Type = NUM
+Desc = Max Duration(S) of Merge Bill
+Default = 10800
+MustFlag = NO
+UpdateFlag = YES
+
+[PreparePage]
+SectList = OM
+Relation = 
+Type = NUM
+Desc = Prepare pages for browsing and querying bills.
+Default = 5 
+MustFlag = NO
+UpdateFlag = YES
+
+

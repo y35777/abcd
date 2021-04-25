@@ -1,0 +1,111 @@
+case "$2" in
+    'start')
+        #!/bin/ksh
+
+        VERDIR="./"
+
+        PATH=./:/usr/bin:/usr/sbin:/usr/ccs/bin:/usr/contrib/bin:$PATH
+        export PATH
+
+        LM_LICENSE_FILE=/var/spool/vertel/license.dat
+        export LM_LICENSE_FILE
+
+        AETABLE=/var/spool/vertel/__AETABLE__
+        export AETABLE
+
+        SHLIB_PATH=./:/usr/lib
+        export SHLIB_PATH
+
+        OSID=/etc/osid.cfg
+        export OSID
+
+        VL_PACKAGE_TYPE=DEV
+        export VL_PACKAGE_TYPE
+
+        case "$1" in
+            'igwccs') echo "Starting igwccs"
+                ./cls_proc&
+                #对cls_proc进程进行监控
+
+                sleep 5
+
+                while true; do
+                    # This script should return 0 if the application is
+                    # running OK or else it should return 1.
+
+                    COUNT="`ps -ef|grep "cls_proc"|grep -v grep |wc |awk '{print $1}'`"
+                    if [ $COUNT != 0 ]; then
+                        #echo "cls_proc is running!"
+                        sleep 240
+                        continue
+                    else
+                        #echo "cls_proc can be restarted now !"
+                        ./cls_proc &
+                        sleep 5
+                        continue
+                    fi
+                done
+                exit 0 ;;
+
+            'cfg') echo "Starting cfg_proc"
+                ./cfg_proc&
+                #对cfg_proc进程进行监控
+
+                sleep 5
+
+                while true; do
+                    # This script should return 0 if the application is
+                    # running OK or else it should return 1.
+
+                    COUNT="`ps -ef|grep "cfg_proc"|grep -v grep |wc |awk '{print $1}'`"
+                    if [ $COUNT != 0 ]; then
+                        #echo "cfg_proc is running!"
+                        sleep 240
+                        continue
+                    else
+                        #echo "cfg_proc can be restarted now !"
+                        ./cfg_proc &
+                        sleep 5
+                        continue
+                    fi
+                done
+                exit 0 ;;
+
+            *)  echo "Usage: $0 {igwccs | cfg} { start | stop }"
+                exit 1
+                ;;
+        esac
+        exit 0 ;;
+
+    'stop')
+        case "$1" in
+            'igwccs') echo "Shutting down igwccs"
+                ./killigwccs
+                exit 0 ;;
+
+            'cfg') echo "Shutting down cfg_proc"
+                kill -15 ` ps -ef | grep -e "cfg_proc" | grep -v grep| grep -v sbin| awk '{print $2}'`
+                while true; do
+                    COUNT="`ps -ef|grep "cfg_proc"|grep -v grep |wc |awk '{print $1}'`"
+                    if [ $COUNT != 0 ]; then
+                    #   echo "cfg_proc is running!"
+                       sleep 1
+                       continue
+                    else
+                    #   echo "cfg_proc stopped!"
+                       break
+                    fi
+                done
+                exit 0 ;;
+
+            *)  echo "Usage: $0 {igwccs | cfg} { start | stop }"
+                exit 1
+                ;;
+        esac
+        exit 0 ;;
+
+    *)  echo "Usage: $0 {igwccs | cfg} { start | stop }"
+        exit 1
+        ;;
+
+esac

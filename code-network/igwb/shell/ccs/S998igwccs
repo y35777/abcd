@@ -1,0 +1,25 @@
+#!/bin/ksh
+
+VERDIR="/opt/igwb"
+
+case "$1" in
+
+    'start') echo "Starting igwccs" 
+             cd $VERDIR
+             /usr/bin/nohup ./igwccsmgr igwccs start& 
+             /usr/bin/nohup ./igwccsmgr cfg    start& 
+             exit 0 ;;
+
+    'stop') echo "Shutting down igwccs"
+            cd $VERDIR
+            ./igwccsmgr igwccs stop
+            ./igwccsmgr cfg    stop
+            exit 0 ;;
+            
+    *)  echo "Usage: $0 { start | stop }"
+        exit 1
+        ;;
+
+esac
+
+exit 0;

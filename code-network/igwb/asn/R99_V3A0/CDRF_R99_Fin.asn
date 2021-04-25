@@ -1,0 +1,746 @@
+CDRF-R99
+DEFINITIONS IMPLICIT TAGS	::=
+
+BEGIN
+
+CallEventRecord	::= CHOICE 
+{
+	sgsnPDPRecord			[20] SGSNPDPRecord,
+	ggsnPDPRecord			[21] GGSNPDPRecord,
+	sgsnMMRecord			[22] SGSNMMRecord,
+	sgsnSMORecord			[23] SGSNSMORecord,
+	sgsnSMTRecord			[24] SGSNSMTRecord
+}
+
+GGSNPDPRecord 	::= SET
+{
+	recordType				[0] CallEventRecordType,
+	networkInitiation		[1] NetworkInitiatedPDPContext OPTIONAL,
+	servedIMSI				[3] IMSI,
+	ggsnAddress				[4] GSNAddress,
+	chargingID				[5] ChargingID,	
+	sgsnAddress				[6] SEQUENCE OF GSNAddress,
+	accessPointNameNI		[7] AccessPointNameNI,
+	pdpType					[8] PDPType,
+	servedPDPAddress		[9] PDPAddress OPTIONAL,
+	dynamicAddressFlag		[11] DynamicAddressFlag OPTIONAL,
+	listOfTrafficVolumes	[12] SEQUENCE OF ChangeOfCharCondition,	
+	recordOpeningTime		[13] TimeStamp,
+	duration				[14] CallDuration,
+	causeForRecClosing		[15] CauseForRecClosing,
+	diagnostics				[16] Diagnostics OPTIONAL,	
+	recSequenceNumList		[17] SequenceList OPTIONAL,	
+	nodeID					[18] NodeID OPTIONAL,	
+	recordExtensions		[19] ManagementExtensions OPTIONAL,	
+	localSequenceNumberList	[20] LocalSequenceNumberList OPTIONAL,
+	apnSelectionMode		[21] APNSelectionMode OPTIONAL,
+	servedMSISDN			[22] MSISDN OPTIONAL,
+	chargingCharacteristics	[23] ChargingCharacteristics OPTIONAL,
+	sgsnPLMNIdentifier		[27] PLMN-Id OPTIONAL,	
+	consolidationResult		[30] ConsolidationResult
+}
+
+SGSNMMRecord	::= SET
+{
+	recordType				[0] CallEventRecordType,
+	servedIMSI				[1] IMSI,
+	servedIMEI				[2] IMEI OPTIONAL,
+	sgsnAddress				[3] GSNAddress,
+	msNetworkCapability		[4] MSNetworkCapability OPTIONAL,
+	routingArea				[5] RoutingAreaCode OPTIONAL,
+	locationAreaCode		[6] LocationAreaCode OPTIONAL,
+	cellIdentifier			[7] CellId OPTIONAL,
+	changeLocation			[8] SEQUENCE OF ChangeLocation OPTIONAL,
+	recordOpeningTime		[9] TimeStamp,
+	duration				[10] CallDuration OPTIONAL, 
+	sgsnChange				[11] SGSNChange OPTIONAL,
+	causeForRecClosing		[12] CauseForRecClosing,
+	diagnostics				[13] Diagnostics OPTIONAL,
+	recordSequenceNumber	[14] INTEGER OPTIONAL,
+	nodeID					[15] NodeID OPTIONAL,
+	recordExtensions		[16] ManagementExtensions OPTIONAL,
+	localSequenceNumber		[17] LocalSequenceNumber OPTIONAL,
+	servedMSISDN			[18] MSISDN OPTIONAL,
+	chargingCharacteristics	[19] ChargingCharacteristics OPTIONAL,
+	cAMELInformationMM 	    [20] CAMELInformationMM OPTIONAL,
+	systemType				[21] SystemType OPTIONAL
+}
+
+SGSNPDPRecord 	::= SET
+{
+	recordType				[0] CallEventRecordType,
+	networkInitiation		[1] NetworkInitiatedPDPContext OPTIONAL,
+	servedIMSI				[3] IMSI,
+	servedIMEI				[4] IMEI OPTIONAL,
+	sgsnAddress				[5] SEQUENCE OF GSNAddress,
+	msNetworkCapability		[6] MSNetworkCapability OPTIONAL,
+	routingArea				[7] RoutingAreaCode OPTIONAL,
+	locationAreaCode		[8] LocationAreaCode OPTIONAL,
+	cellIdentifier			[9] CellId OPTIONAL,
+	chargingID				[10] ChargingID,
+	ggsnAddressUsed			[11] GSNAddress,
+	accessPointNameNI		[12] AccessPointNameNI,
+	pdpType					[13] PDPType,
+	servedPDPAddress		[14] PDPAddress OPTIONAL,	
+	listOfTrafficVolumes	[15] SEQUENCE OF ChangeOfCharCondition,	
+	recordOpeningTime		[16] TimeStamp,
+	duration				[17] CallDuration,
+	sgsnChange				[18] SGSNChange OPTIONAL,
+	causeForRecClosing		[19] CauseForRecClosing,
+	diagnostics				[20] Diagnostics OPTIONAL,
+	recSequenceNumList		[21] SEQUENCE OF SequenceList OPTIONAL,	
+	nodeID					[22] NodeID OPTIONAL,	
+	recordExtensions		[23] ManagementExtensions OPTIONAL,
+	localSequenceNumber		[24] SEQUENCE OF LocalSequenceNumberList OPTIONAL,	
+	apnSelectionMode		[25] APNSelectionMode OPTIONAL,
+	accessPointNameOI		[26] AccessPointNameOI,
+	servedMSISDN			[27] MSISDN OPTIONAL,
+	chargingCharacteristics	[28] ChargingCharacteristics OPTIONAL,
+	systemType				[29] SystemType OPTIONAL,
+	cAMELInformationPDP  	[30] CAMELInformationPDP OPTIONAL,
+	rNCUnsentDownlinkVolumeList	[31] SEQUENCE OF RNCUnsentDownlinkVolumeList OPTIONAL,		
+	consolidationResult			[32] ConsolidationResult
+}
+
+SGSNSMORecord	::= SET
+{
+	recordType				[0] CallEventRecordType,
+	servedIMSI				[1] IMSI,
+	servedIMEI				[2] IMEI OPTIONAL,
+	servedMSISDN			[3] MSISDN OPTIONAL,
+	msNetworkCapability		[4] MSNetworkCapability,
+	serviceCentre			[5] AddressString,
+	recordingEntity			[6] RecordingEntity,
+	locationArea			[7] LocationAreaCode OPTIONAL,
+	routingArea				[8] RoutingAreaCode OPTIONAL,
+	cellIdentifier			[9] CellId OPTIONAL,
+	messageReference		[10] MessageReference,
+	originationTime			[11] TimeStamp,
+	smsResult				[12] SMSResult OPTIONAL,
+	recordExtensions		[13] ManagementExtensions OPTIONAL, 
+	nodeID					[14] NodeID OPTIONAL,
+	localSequenceNumber		[15] LocalSequenceNumber OPTIONAL,
+	chargingCharacteristics	[16] ChargingCharacteristics OPTIONAL,
+	systemType				[17] SystemType OPTIONAL,
+	destinationNumber		[18] CalledNumber OPTIONAL,
+	cAMELInformationSMS		[19] CAMELInformationSMS OPTIONAL
+}
+
+SGSNSMTRecord	::= SET
+{
+	recordType				[0] CallEventRecordType,
+	servedIMSI				[1] IMSI,
+	servedIMEI				[2] IMEI OPTIONAL,
+	servedMSISDN			[3] MSISDN OPTIONAL,
+	msNetworkCapability		[4] MSNetworkCapability,
+	serviceCentre			[5] AddressString,
+	recordingEntity			[6] RecordingEntity,
+	locationArea			[7] LocationAreaCode OPTIONAL,
+	routingArea				[8] RoutingAreaCode OPTIONAL,
+	cellIdentifier			[9] CellId OPTIONAL,
+	originationTime			[10] TimeStamp,
+	smsResult				[11] SMSResult OPTIONAL,
+	recordExtensions		[12] ManagementExtensions OPTIONAL,
+	nodeID					[13] NodeID OPTIONAL,
+	localSequenceNumber		[14] LocalSequenceNumber OPTIONAL,
+	chargingCharacteristics	[15] ChargingCharacteristics OPTIONAL,
+	systemType				[16] SystemType OPTIONAL
+}
+
+------------------------------------------------------------------------------
+--
+--  OBJECT IDENTIFIERS
+--
+------------------------------------------------------------------------------
+
+gsm1205InformationModel	 OBJECT IDENTIFIER	::=
+	{ ccitt (0) identified-organization (4) etsi (0) mobileDomain (0)
+	gsm-Operation-Maintenance (3) gsm-12-05 (5) informationModel (0) }
+
+gsm1205ASN1Module	OBJECT IDENTIFIER	::= 
+	{ gsm1205InformationModel asn1Module(2) }
+
+------------------------------------------------------------------------------
+--
+--  COMMON DATA TYPES
+--
+------------------------------------------------------------------------------
+
+AccessPointNameNI	::= IA5String (SIZE(1..63))
+	--
+	-- Network Identifier part of APN in "dot" representation
+	-- see TS 23.003
+	--
+
+AccessPointNameOI	::= IA5String (SIZE(1..37))
+	--
+	-- Operator Identifier part of APN in dot representation
+	-- see TS 23.003
+	--
+
+APNSelectionMode::= ENUMERATED
+{
+	--
+	-- See Information Elements TS 29.060
+	--
+	mSorNetworkProvidedSubscriptionVerified				(0),
+	mSProvidedSubscriptionNotVerified					(1),
+	networkProvidedSubscriptionNotVerified				(2)
+}
+
+
+CAMELAccessPointNameNI	::= AccessPointNameNI
+
+CAMELAccessPointNameOI	::= AccessPointNameOI
+
+CallReferenceNumber ::= OCTET STRING (SIZE (1..8))
+
+CAMELInformationMM		::= SET 
+{
+	sCFAddress						[1] SCFAddress OPTIONAL,
+	serviceKey						[2] ServiceKey OPTIONAL,
+	defaultTransactionHandling		[3] DefaultGPRS-Handling OPTIONAL,
+	numberOfDPEncountered  			[4] NumberOfDPEncountered OPTIONAL,
+	levelOfCAMELService				[5] LevelOfCAMELService OPTIONAL,
+	freeFormatData					[6] FreeFormatData OPTIONAL,
+	fFDAppendIndicator	     		[7] FFDAppendIndicator OPTIONAL
+}
+
+CAMELInformationPDP	::= SET
+{
+	sCFAddress						[1] SCFAddress OPTIONAL,
+	serviceKey						[2] ServiceKey OPTIONAL,
+	defaultTransactionHandling		[3] DefaultGPRS-Handling OPTIONAL,
+	cAMELAccessPointNameNI			[4] CAMELAccessPointNameNI OPTIONAL,
+	cAMELAccessPointNameOI			[5] CAMELAccessPointNameOI OPTIONAL,
+	numberOfDPEncountered  			[6] NumberOfDPEncountered OPTIONAL,
+	levelOfCAMELService				[7] LevelOfCAMELService OPTIONAL,
+	freeFormatData					[8] FreeFormatData OPTIONAL,
+	fFDAppendIndicator	     		[9] FFDAppendIndicator OPTIONAL
+}
+
+CAMELInformationSMS		::= SET 
+{
+	sCFAddress							[1] SCFAddress OPTIONAL,
+	serviceKey							[2] ServiceKey OPTIONAL,
+	defaultSMSHandling					[3] DefaultSMS-Handling OPTIONAL,
+	cAMELCallingPartyNumber				[4] CallingNumber OPTIONAL,
+	cAMELDestinationSubscriberNumber  	[5] CalledNumber OPTIONAL,
+	cAMELSMSCAddress					[6] AddressString OPTIONAL,
+	freeFormatData						[7] FreeFormatData OPTIONAL,
+	sMSReferenceNumber					[8] CallReferenceNumber	OPTIONAL	
+}
+
+LevelOfCAMELService		::= BIT STRING
+{
+	basic				(0),
+	callDurationSupervision	(1),
+	onlineCharging		(2)
+}
+
+CauseForRecClosing	::= INTEGER
+{
+	--
+	-- in GGSN the value sGSNChange should be used for partial record
+	-- generation due to SGSN Address List Overflow
+	--
+	-- cause codes 0 to 15 are defined in TS 32.005 as 'CauseForTerm' (cause for termination)
+	--
+	normalRelease			(0),
+	abnormalRelease			(4),
+	cAMELInitCallRelease	        (5),
+	volumeLimit			(16),
+	timeLimit			(17),
+	sGSNChange			(18),
+	maxChangeCond			(19),
+	managementIntervention		(20)
+}
+
+ChangeCondition	::= ENUMERATED
+{
+	qoSChange			(0),
+	tariffTime			(1),
+	recordClosure			(2)
+}
+
+ChangeOfCharCondition	::= SEQUENCE
+	--
+	-- used in PDP context record only
+	--
+{
+	qosRequested			[1] QoSInformation OPTIONAL,
+	qosNegotiated			[2] QoSInformation OPTIONAL,
+	dataVolumeGPRSUplink	        [3] DataVolumeGPRS,
+	dataVolumeGPRSDownlink		[4] DataVolumeGPRS,
+	changeCondition			[5] ChangeCondition,
+	changeTime			[6] TimeStamp
+}
+
+ChangeLocation	::= SEQUENCE
+	--
+	-- used in SGSNMMRecord only
+	--
+{
+	locationAreaCode		[0] LocationAreaCode,
+	routingAreaCode			[1] RoutingAreaCode,
+	cellId				[2] CellId OPTIONAL,
+	changeTime			[3] TimeStamp
+}
+
+ChargingCharacteristics	::= OCTET STRING (SIZE(2))
+    --
+	--  Descriptions for the bits of the flag set:
+	--
+	--  Bit 1: H (Hot billing)			:= '00000001'B
+	--  Bit 2: F (Flat rate)			:= '00000010'B
+	--  Bit 3: P (Prepaid service)			:= '00000100'B
+	--	Bit 4: N (Normal billing)		:= '00001000'B
+	--	Bit 5: - (Reserved, set to 0)		:= '00010000'B
+	--	Bit 6: - (Reserved, set to 0)		:= '00100000'B
+	--	Bit 7: - (Reserved, set to 0)		:= '01000000'B
+	--	Bit 8: - (Reserved, set to 0)		:= '10000000'B
+	--
+
+ChargingID	::= INTEGER (0..4294967295)
+	--
+	-- generated in GGSN, part of PDP context, see TS 23.060
+	-- 0..4294967295 is equivalent to 0..2**32-1
+
+DataVolumeGPRS	::= INTEGER
+	--
+	-- The volume of data transferred in octets.
+	--
+
+DefaultGPRS-Handling ::= ENUMERATED 
+{
+	continueTransaction (0) ,
+	releaseTransaction (1)
+}
+-- exception handling:
+-- reception of values in range 2-31 shall be treated as "continueTransaction"
+-- reception of values greater than 31 shall be treated as "releaseTransaction"
+
+DefaultSMS-Handling ::= ENUMERATED 
+{
+	continueTransaction (0) ,
+	releaseTransaction (1)
+}
+--	exception handling:
+--	reception of values in range 2-31 shall be treated as "continueTransaction"
+--	reception of values greater than 31 shall be treated as "releaseTransaction"
+
+DynamicAddressFlag	::= BOOLEAN
+
+ETSIAddress	::= AddressString
+	--
+	--first octet for nature of address, and numbering plan indicator (3 for X.121)
+	--other octets TBCD
+	-- See TS 29.002
+	--
+
+FFDAppendIndicator	::= BOOLEAN
+
+FreeFormatData	::=	OCTET STRING (SIZE(1..160))
+	--
+	-- Free formated data as sent in the FurnishChargingInformationGPRS 
+	-- see TS 29.078
+	--
+
+GSNAddress	::= IPAddress
+
+GSMQoSInformation	::=SEQUENCE
+{
+	reliability			[0] QoSReliability,
+	delay				[1] QoSDelay,
+	precedence			[2] QoSPrecedence,
+	peakThroughput			[3] QoSPeakThroughput,
+	meanThroughput			[4] QoSMeanThroughput
+}
+
+IPAddress	::= CHOICE
+{
+	iPBinaryAddress	 IPBinaryAddress,
+	iPTextRepresentedAddress	 IPTextRepresentedAddress
+}
+
+IPBinaryAddress	::= CHOICE
+{
+	iPBinV4Address			[0] OCTET STRING (SIZE(4)),
+	iPBinV6Address			[1] OCTET STRING (SIZE(16))
+}
+
+IPTextRepresentedAddress	::= CHOICE
+{	--
+	-- IP address in the familiar "dot" notation
+	--
+	iPTextV4Address			[2] IA5String (SIZE(7..15)),
+	iPTextV6Address			[3] IA5String (SIZE(15..45))
+}
+
+LocalSequenceNumber ::= INTEGER (0..4294967295)
+	--
+	-- Sequence number of the record in this node
+	-- 0.. 4294967295 is equivalent to 0..2**32-1, unsigned integer in four octets
+
+MSNetworkCapability	::= OCTET STRING (SIZE(1..8))
+
+NetworkInitiatedPDPContext	::= BOOLEAN
+	--
+	-- Set to true if PDP context was initiated from network side
+	--
+
+NodeID	::= IA5String (SIZE(1..20))
+
+PDPAddress	::= CHOICE
+{
+	iPAddress				[0] IPAddress,
+	eTSIAddress				[1] ETSIAddress
+}
+
+PDPType		::= OCTET STRING (SIZE(2))
+	--
+	--OCTET 1: PDP Type Organization
+	--OCTET 2: PDP Type Number
+	-- See TS 29.060
+	--
+QoSDelay		::= ENUMERATED
+{
+	--
+	-- See Quality of service TS 24.008
+	--
+	delayClass1				(1),
+	delayClass2				(2),
+	delayClass3				(3),
+	delayClass4				(4)
+}
+
+QoSInformation	::= CHOICE
+{
+	gsmQosInformation		[0] GSMQoSInformation,
+	--
+	-- The "GSMQoSInformation corresponds to the encoding specified in GSM TS 12.15, and shall be used for pre-Release 99 terminals only.  The umtsQosInformation octet string is a 1:1 copy of the contents (i.e. starting with octet 4) of the "Quality of service Profile" information element specified in 3GPP TS 29.060 [22].
+
+	umtsQosInformation		[1] OCTET STRING (SIZE (12))
+	--
+	-- The umtsQosInformation octet string is a 1:1 copy of the contents (i.e. starting with 
+	-- octet 3) of the "Quality of service" information element specified in TS 24.008.
+}
+
+QoSMeanThroughput ::= ENUMERATED
+{
+	--
+	-- See Quality of service TS 24.008
+	--
+	subscribedMeanThroughput 	(0), -- MS to network direction
+	-- Network to MS direction needs not to be covered since value (0) = “reserved”
+	mean100octetPh 			(1),
+	mean200octetPh 			(2),
+	mean500octetPh 			(3),
+	mean1000octetPh 		(4),
+	mean2000octetPh 		(5),
+	mean5000octetPh 		(6),
+	mean10000octetPh 		(7),
+	mean20000octetPh 		(8),
+	mean50000octetPh 		(9),
+	mean100000octetPh 		(10),
+	mean200000octetPh 		(11),
+	mean500000octetPh 		(12),
+	mean1000000octetPh 		(13),
+	mean2000000octetPh 		(14),
+	mean5000000octetPh 		(15),
+	mean10000000octetPh 		(16),
+	mean20000000octetPh		(17),
+	mean50000000octetPh 		(18),
+	reserved 			(30),
+	bestEffort 			(31)
+}
+
+QoSPeakThroughput	::= ENUMERATED
+{
+	--
+	-- See Quality of service TS 24.008
+	--
+	unspecified			(0),
+	upTo1000octetPs			(1),
+	upTo2000octetPs			(2),
+	upTo4000octetPs			(3),
+	upTo8000octetPs			(4),
+	upTo16000octetPs		(5),
+	upTo32000octetPs		(6),
+	upTo64000octetPs		(7),
+	upTo128000octetPs		(8),
+	upTo256000octetPs		(9)
+}
+QoSPrecedence	::= ENUMERATED
+{
+	--
+	-- See Quality of service TS 24.008
+	--
+	unspecified			(0),
+	highPriority			(1),
+	normalPriority			(2),
+	lowPriority			(3)
+}
+QoSReliability	::= ENUMERATED
+{
+	--
+	-- See Quality of service TS 24.008
+	--
+	unspecifiedReliability	(0),
+	acknowledgedGTP		(1),
+	unackGTPAcknowLLC	(2),
+	unackGTPLLCAcknowRLC	(3),
+	unackGTPLLCRLC		(4),
+	unacknowUnprotectedData	(5)
+}
+
+RoutingAreaCode	::= OCTET STRING (SIZE(1))
+	--
+	-- See TS 24.008	--
+	--
+
+SCFAddress	::= AddressString
+	--
+	-- See TS 29.002	--
+	--
+
+ServiceKey ::= INTEGER (0..2147483647)
+
+NumberOfDPEncountered  ::= INTEGER
+--
+--
+
+SGSNChange	::= BOOLEAN
+	--
+	-- present if first record after inter SGSN routing area update
+	-- in new SGSN
+	--
+
+SystemType  ::= ENUMERATED
+{
+	unknown			(0),
+	iuUTRAN			(1),
+	gERAN			(2)
+}
+
+--Changes (enhancements) in GSM1205-DataTypes:
+CallEventRecordType ::= INTEGER 
+{ 
+	sgsnPDPRecord			(18),
+	ggsnPDPRecord			(19),
+	sgsnMMRecord			(20),
+	sgsnSMORecord			(21),
+	sgsnSMTRecord			(22)
+}
+
+-- From other Protocol:
+-- 1. GSM 12.05 V7.0.0 (1999-04)
+-- 2. CCITT	X.721	Geneva, 1992
+-- 3. 3GPP TS 29.002 V3.7.0 (2000-12)  17.7.8 Common data types
+
+CalledNumber			::= BCDDirectoryNumber (SIZE(10))
+
+CallingNumber			::= BCDDirectoryNumber (SIZE(10))
+
+BCDDirectoryNumber		::= OCTET STRING
+	-- This type contains the binary coded decimal representation of
+	-- a directory number e.g. calling/called/connected/translated number.
+	-- The encoding of the octet string is in accordance with the
+	-- the elements "Calling party BCD number", "Called party BCD number"
+	-- and "Connected number" defined in TS GSM 04.08.
+	-- This encoding includes type of number and number plan information
+	-- together with a BCD encoded digit string.
+	-- It may also contain both a presentation and screening indicator
+	-- (octet 3a).
+	-- For the avoidance of doubt, this field does not include 
+	-- octets 1 and 2, the element name and length, as this would be 
+	-- redundant.
+
+SMSResult					::= Diagnostics
+
+Diagnostics					::= CHOICE
+{
+	gsm0408Cause			[0] INTEGER,
+	-- See TS GSM 04.08	
+	gsm0902MapErrorValue		[1] INTEGER,
+	-- Note: The value to be stored here corresponds to
+	-- the local values defined in the MAP-Errors and 
+	-- MAP-DialogueInformation modules, for full details
+	-- see TS GSM 09.02.
+	ccittQ767Cause		[2] INTEGER,
+	-- See CCITT Q.767	
+	networkSpecificCause		[3] ManagementExtension,
+	-- To be defined by network operator	
+	manufacturerSpecificCause	[4] ManagementExtension
+	-- To be defined by manufacturer	
+}
+
+MessageReference		::= OCTET STRING
+
+RecordingEntity 		::= AddressString
+
+CellId	::= OCTET STRING (SIZE(2))
+	--
+	-- Coded according to TS GSM 04.08	
+	--
+
+LocationAreaCode		::= OCTET STRING (SIZE(2))
+	--
+	-- See TS GSM 04.08
+	--
+
+CallDuration 			::= INTEGER
+	--
+	-- The call duration in seconds. 
+	-- For successful calls this is the chargeable duration.
+	-- For call attempts this is the call holding time.
+	-- 
+
+ManagementExtensions	::= SET OF ManagementExtension
+
+TimeStamp					::= OCTET STRING (SIZE(9))
+	--
+	-- The contents of this field are a compact form of the UTCTime format
+	-- containing local time plus an offset to universal time. Binary coded
+	-- decimal encoding is employed for the digits to reduce the storage and
+	-- transmission overhead
+	-- e.g. YYMMDDhhmmssShhmm
+	-- where
+	-- YY 	= 	Year 00 to 99		BCD encoded
+	-- MM 	= 	Month 01 to 12 	BCD encoded
+	-- DD	=	Day 01 to 31		BCD encoded
+	-- hh	=	hour 00 to 23		BCD encoded
+	-- mm	=	minute 00 to 59	BCD encoded
+	-- ss	=	second 00 to 59	BCD encoded
+	-- S	=	Sign 0 = "+", "-"	ASCII encoded
+	-- hh	=	hour 00 to 23		BCD encoded
+	-- mm	=	minute 00 to 59	BCD encoded
+	--
+
+MSISDN	::= ISDN-AddressString 
+	-- 
+	-- See TS GSM 03.03
+	--
+
+IMEI ::= TBCD-STRING (SIZE (8))
+	--	Refers to International Mobile Station Equipment Identity
+	--	and Software Version Number (SVN) defined in TS GSM 03.03.
+	--	If the SVN is not present the last octet shall contain the
+	--	digit 0 and a filler.
+	--	If present the SVN shall be included in the last octet.
+
+
+IMSI ::= TBCD-STRING (SIZE (3..8))
+	-- digits of MCC, MNC, MSIN are concatenated in this order.
+
+
+ManagementExtension ::= SEQUENCE 
+{
+		identifier		OBJECT IDENTIFIER,
+		significance	[1] BOOLEAN DEFAULT FALSE,
+		information		[2] OCTET STRING 
+}
+
+AddressString ::= OCTET STRING (SIZE (1..maxAddressLength))
+	-- This type is used to represent a number for addressing
+	-- purposes. It is composed of
+	--	a)	one octet for nature of address, and numbering plan
+	--		indicator.
+	--	b)	digits of an address encoded as TBCD-String.
+
+	-- a)	The first octet includes a one bit extension indicator, a
+	--		3 bits nature of address indicator and a 4 bits numbering
+	--		plan indicator, encoded as follows:
+
+	-- bit 8: 1  (no extension)
+
+	-- bits 765: nature of address indicator
+	--	000  unknown
+	--	001  international number
+	--	010  national significant number
+	--	011  network specific number
+	--	100  subscriber number
+	--	101  reserved
+	--	110  abbreviated number
+	--	111  reserved for extension
+
+	-- bits 4321: numbering plan indicator
+	--	0000  unknown
+	--	0001  ISDN/Telephony Numbering Plan (Rec CCITT E.164)
+	--	0010  spare
+	--	0011  data numbering plan (CCITT Rec X.121)
+	--	0100  telex numbering plan (CCITT Rec F.69)
+	--	0101  spare
+	--	0110  land mobile numbering plan (CCITT Rec E.212)
+	--	0111  spare
+	--	1000  national numbering plan
+	--	1001  private numbering plan
+	--	1111  reserved for extension
+
+	--	all other values are reserved.
+
+	-- b)	The following octets representing digits of an address
+	--		encoded as a TBCD-STRING.
+
+ISDN-AddressString ::= 
+			AddressString (SIZE (1..maxISDN-AddressLength))
+	-- This type is used to represent ISDN numbers.
+
+TBCD-STRING ::= OCTET STRING
+	-- This type (Telephony Binary Coded Decimal String) is used to
+	-- represent several digits from 0 through 9, *, #, a, b, c, two
+	-- digits per octet, each digit encoded 0000 to 1001 (0 to 9),
+	-- 1010 (*), 1011 (#), 1100 (a), 1101 (b) or 1110 (c); 1111 used
+	-- as filler when there is an odd number of digits.
+
+	-- bits 8765 of octet n encoding digit 2n
+	-- bits 4321 of octet n encoding digit 2(n-1) +1
+
+maxAddressLength  INTEGER ::= 20
+
+maxISDN-AddressLength  INTEGER ::= 9
+
+-- 下面两个类型是我们自己新增加的
+
+SequenceList	::= SEQUENCE
+	-- 合并后把所有部分话单的RecordSequenceNumber字段连接起来，
+	-- 并在头部加上SGSN的地址。
+{
+	sgsnAddress		[1] GSNAddress,
+	recSequenceNumber	[2] SEQUENCE OF INTEGER OPTIONAL
+}
+
+ConsolidationResult	::= ENUMERATED
+{
+	-- 合并结果标志	
+	normal				(0),
+	notnormal			(1),
+	forInterSGSNConsolidation	(2),
+	reachLimit			(3),
+	onlyOneCDRGenerated		(4)
+}
+
+LocalSequenceNumberList	::= SEQUENCE
+	-- 合并后把所有部分话单的LocalSequenceNumber字段连接起来，
+	-- 并在头部加上SGSN的地址。
+{
+	gsnAddress		[1] GSNAddress,
+	localSeqNumberList	[2] SEQUENCE OF INTEGER OPTIONAL
+}
+
+RNCUnsentDownlinkVolumeList	::= SEQUENCE
+	-- 合并后把所有部分话单的RNCUnsentDownlinkVolume字段连接起来，
+	-- 并在头部加上SGSN的地址。
+{
+	sgsnAddress		[1] GSNAddress,
+	rNCUnsentDnVolumeList	[2] SEQUENCE OF INTEGER OPTIONAL
+}
+
+PLMN-Id ::= OCTET STRING (SIZE (3))
+-- This is a 1:1 copy from the Routing Area Identity (RAI) IE specified in TS 09.60
+-- as follows:
+-- OCTET 1 of PLMN-Id = OCTET 2 of RAI
+-- OCTET 2 of PLMN-Id = OCTET 3 of RAI
+-- OCTET 3 of PLMN-Id = OCTET 4 of RAI
+
+END

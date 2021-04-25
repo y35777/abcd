@@ -1,0 +1,1330 @@
+1=Manual switch
+2=Switch failed
+3=Switch succeed
+4=Start KERNEL successfully 
+5=Failed to start KERNEL
+6=Agent initialize successfully
+7=KERNEL is running
+8=KERNEL is not running
+9=Agent send STOP command to KERNEL
+10=Agent send SIGTERM signal to kill KERNEL
+11=KERNEL activate successfully
+12=KERNEL failed to activate
+13=Peer cannot handover
+14=Ask for failover(%s)
+15=Agent received SIGTERM signal
+16=Agent received KERNEL active response
+17=Send QUIT command to module manager
+18=Agent received MANUAL SWITCH command
+19=Agent received SIGCLD signal
+20=Cannot find the file(%s)
+21=Failed to write file
+22=No enough space for frontsave
+23=No enough space for backsave
+24=Child process exit abnormally
+25=Failed to activate
+26=Resource defunct
+27=Harddisk error in RAID
+28=Unrecognized reason for failover
+29=Not in cluster mode,cannot switch
+30=Failed to execl child process (%s),ErrNo.=%d
+31=Manual reset
+32=Manual reset starting
+
+34=Sync serial No.
+35=Failed to write syn to history alarm file
+36=Failed to flush the syn to file
+37=Failed to write MMLBaseID to history alarm file
+38=Failed to flush the MMLBaseID to file
+39=NEFLAG
+40=Responsed frame for alarm is error
+41=Response mismatch,I want:Frame Len =%d,SMid=%d,RMid=%d,Handle=%d
+42=Response you send:Frame Len =%d,SMid=%d,RMid=%d,Handle=%d
+43=%d reports in total
+44=(Number of results = %d)
+45=Send bin alarm(ID=%d,type=%d,para=%d)
+46=Resend bin alarm
+47=Receive bin alarm response(ID=%d,type=%d,para=%d)
+48=Failed to change state
+49=Checksum or command head from ALARM BOX is error(CMD=%d) 
+50=Alarm type(Restore) is error
+51=Cleared time
+52=Alarm raised time
+53=Module No.
+54=Alarm name
+55=Location info
+56=ALARM  0          ACK   Info    iGWB  0      BillAlarm
+57=Acknowledge operator
+58=Alarm Flag
+59=Alarm serial No.
+60=Alarm type
+61=Alarm Severity
+62=Alarm Source
+63=Alarm ID
+64=Alarm Subsys ID
+65=Alarm parameter
+66=Alarm Explain
+67=Alarm parameter explain
+68=start serial No.
+69=end serial No.
+70=Cleared type
+71=Acknowledge state
+72=Acknowledge operator
+73=Acknowledge time
+74=Restore ACK Operator
+75=Cleared time
+76=Suggestion
+77=Start Date
+78=End Date
+79=SUCCESS
+80=FAIL
+81=---
+82=Acknowledged
+83=Not acknowledged
+84=Event
+85=Fault
+86=Cleared
+87=HISTORY ALARM
+88=UNDEF
+89=Critical
+90=Major
+91=Minor
+92=Warning
+93=Power
+94=Environment
+95=Signaling
+96=Trunk
+97=Hardware
+98=Software
+99=Running
+100=NOT_RECEIVED
+101=RECEIVED
+102=COMM_IN_MODULE
+103=CONTROL_SYSTEM
+104=NETWORK_SYSTEM
+105=COMM_IN_MAIN_NODE
+106=SIGNALING_SYSTEM
+107=TIME_SYSTEM
+108=USER_SYSTEM
+109=TRUNK_SYSTEM
+110=TEST_SYSTEM
+111=POWER_SYSTEM
+112=ENVIROMENT_SYSTEM
+113=TRANSFER_SYSTEM
+114=DATABASE_SYSTEM
+115=BILLING_SYSTEM
+116=CALL_IDENTITY
+117=SOFTWARE_RUNNING
+118=COMM_FROM_TO 
+119=Not cleared
+120=Normally cleared
+121=Reset cleared
+122=Manually cleared
+123=Corresponding results not found
+124=CFG_NULL
+125=Failed to load configuration
+126=Failed to init work module
+127=Failed to open INI file
+128=Failed to init BinAlarmHandler,AP=%s
+129=Failed to init MMLAlarmHandler
+130=Failed to open history alarm
+131=File not opened,failed to write csn to history alarm file
+132=Failed to write csn to history alarm file
+133=Failed to flush the csn to file
+134=Failed to add history alarm to file
+135=Failed to flush history alarm file
+136=Failed to write history alarm file
+137=File pointer is NULL
+138=Failed to allocate memory
+139=Failed to seek in history alarm file
+140=Failed to delete history alarm file
+141=Received MML command(%s)
+142=Send MML alarm(ID=%d,Para=%d,Type=%d)
+143=Clear history alarm
+144=To be continued...
+145=Inner alarm ID(--%d--) is not defined
+146=Inner alarm type is error
+147=Failed to write alarm ACK to file,Alarm Csn=%d
+148=Alarm ACK total reach limit
+149=Alarm ACK repeated,Alarm Csn=%d
+150=Delete too many pieces of alarm once time
+151=Received undefined alarm(ID=%d,Para=%d,Type=%d)
+152=Failed to add bin alarm(ID=%d,Type=%d,Para=%d)
+153=Alarm response is error(Module No.)
+154=AlarmBox is in INIT status,cannot query light status
+155=AlarmBox is in INIT status,cannot query alarm box version
+156=AlarmBox is in INIT status,not need to turn off light
+157=AlarmBox is in INIT status,cannot stop alarm sound
+158=AlarmBox is in INIT status,not need to handle
+159=AlarmBox is OFFLINE,cannot query light status
+160=AlarmBox is OFFLINE,cannot query alarm box version
+161=AlarmBox is OFFLINE,not need to turn off light
+162=AlarmBox is OFFLINE,cannot stop alarm sound
+163=AlarmBox is OFFLINE,not need to handle
+164=Emergency Count
+165=Important Count
+166=Minor Count
+167=Normal Count
+168=AlarmBox Version 
+169=No result,please query later
+170=Location parameter is error 
+171=AlarmBox handler received MML command(%d)
+172=Update alarm info(Csn=%d,ID=%d)
+173=AlarmBox init error
+174=Analysis response from AlarmBox(CMD=%d)
+175=Destroy state object
+176=AlarmBox handler send MML report:%s
+177=AlarmBox handler transfer to INIT status
+178=AlarmBox handler transfer to OFFLINE status
+179=AlarmBox handler transfer to NORMAL status
+
+180=In channel(%s),create new date directory(%s)
+181=In channel(%s),create new file(%s)
+182=In channel(%d),receive a jump pid,from %d to %d
+183=Create formal file:%s in chanl(%s)
+184=The current status is fault
+185=The status of channel(%s) is normal,current csn is %d
+186=In channel(%s),failed to save packet %d,ErrCode is %d
+187=Failed to process timer message
+188=In channel(%d),receive a jump pid,from %d to %d
+189=Error config(FinalFileMaxSize=%dK)
+190=Succeed in deleting the last file,csn=%d
+191=Failed to delete the last file,csn=%d
+192=Delete a file because of different status files,file csn=%d
+193=Create a new file:%s
+194=Failed to init base class in InitInstance
+195=Failed to init format interface in InitInstance
+196=Failed to open INI file in CSaveChannel::Init
+197=In channel(%s),failed to save packet %d,ErrCode is %d
+198=Failed to process timer message
+199=Failed to load the Billing-system adapting library
+200=Failed to init the Billing-system adapting library
+201=Failed to process the Billing-system adapting library
+202=Failed to terminate the Billing-system adapting library
+203=Open directory error
+204=Create directory error
+205=CDR backup timeout
+206=Delete CDR error
+207=backup time error
+208=the length of the file is less than the minimum %d byte and configured into the minimum
+209=the length of the file is more than the maximum %d byte and configured into the maximum
+210=the limit of deleting file is less than the minimum %d day and configured into the minimum
+211=the limit of deleting file is more than the maximum %d day and configured into the maximum
+212=the time of creating file is less than the minimum %d second and configured into the minimum
+213=the time of creating file is more than the maximum %d second and configured into the maximum
+214=ChanneID(%d) is illegal
+215=Failed to open file(%s)
+216=Failed to read file(%s)
+217=Failed to write file(%s)
+218=Find error bill in file(%s), offset(%d)
+219=When configruation is EnableCheckLog, Bill length of channel(%d) is 0
+
+220=Failed to start backup module
+221=Failed to start backup task
+222=Failed to start backup monitor thread
+223=Backup monitor end
+224=Failed to start backup task(%d)
+225=Backup task(%d)succeed(%s==>%s:%s)
+226=Count of backup task is 0
+227=Failed to open INI 
+228=Failed to operate status file
+229=Backup task(%d) delete file(%s)
+230=Failed to open dirent
+231=Failed to open status file
+232=Backup task(%d) failed to delete file(%s)
+233=Stop backup task(%d)
+234=Backup task(%d) failed(%s==>%s:%s)
+235=Backup task(%d) failed to delete(%s)
+236=Backup task(%d) failed to rename file,failed to delete(%s)
+237=Backup task(%d) failed to write status(%s)
+238=Backup task(%d) found remote file(%s) attribute is wrong
+239=Backup task(%d) failed to create dirent(%s)
+240=Backup task(%d) failed to connect
+241=Backup task(%d) failed to rename the temp file(%s)
+242=Backup Task(%d)'s parameter(%s) exceed the limit(%d)
+243=Backup Task(%d) failed to transfer files for the %d times, the retry times is %d.
+244=Backup Task(%d) failed to transfer files for maximum retry times: %d, will continue in next backup period. 
+245=Delete files in %s(ID=%d)
+246=Current time is %s,dirent or file to be deleted is %s(ID=%d)
+247=successful
+248=failed
+249=deletion of %s is %s(ID=%d)
+250=Search in%s(ID=%d)
+251=Find dirent %s(ID=%d)
+252=No date dirent in %s, root dirent is viewed as secondry dirent(ID=%d)
+253=Search files in %s(ID=%d)
+254=In dirent %s, find file %s(ID=%d)
+255=Not to backup the last file %s(ID=%d)
+256=No file or only one file or failed to prepare files in dirent %s(ID=%d)
+257=Create destination dirent %s(ID=%d)
+258=Continue after %d seconds(ID=%d)
+259=Interval between two connection is less than %d, last connection time is %s(ID=%d)
+260=Creation of dirent %s is %s(ID=%d)
+261=Local IP=%s,User name=%s,Connection to %s is %s(ID=%d)
+262=Restart task(%d)
+263=Failed to delete file(%s)
+264=License for backup function is invalid or expired
+265=Deleting outdated file(%s)
+266=The path of Remote storage not configured(ID=%d)
+
+268=Backup task succeed
+269=Delete task succeed
+270=Succeed in deleting cdr files
+271=Failed to delete cdr files
+272=Failed to backup cdr files for no auto task running
+273=Failed to connect ftp server
+274=Failed to create directory
+275=Failed to enter  directory
+276=Failed to transfer cdr files
+277=The current task is discarded for the previous one is not completed
+
+300=Received CMD_EXIT,deactivate me
+301=Received CMD_ANS_DEACTIVE,shutdown
+302=MONITOR init successfully
+303=Failed to init MONITOR 
+304=Received CMD_ANS_ACTIVE(Para=%d)
+305=Received CMD_ASK_FAILOVER(Para=%d)
+306=Disk space is full,ask for MT_NETWORK to pause
+307=Disk space restored,ask for MT_NETWORK to continue
+
+330=Succeed in connecting KERNEL(%s:%d)
+331=APType(%d) is undefined
+332=Succeed in creating CommLayer object
+333=Destroy CommLayer object
+334=Failed to read LocalIpToEx,take default:%s
+335=Failed to read LocalIpToExBak,take default:%s
+336=Failed to read LocalIpToMMLClient,take default:%s
+337=APType is unmatched
+338=Failed to read LocalIpToEx,take default:%s
+339=Succeed in shaking hands with process(pid=%d)
+340=Failed to transmit message,ErrCode=%d
+341=Connect() returned %d(%s),while connecting KERNEL
+342=Registering socket returned %d,while connecting KERNEL
+343=Sending shake hands frame returned %d,while connecting KERNEL
+344=Failed to receive UDP package,ErrCode=%d(%s)
+345=Failed to send UDP package,ErrCode=%d(%s)
+346=Failed to receive from (%s:%d) TCP/IP package,ErrCode=%d(%s)
+347=Failed to send TCP/IP package to (%s:%d),ErrCode=%d(%s)
+348=Received too large TCP/IP frame from(%s:%d),size=%d
+349=Failed to create FrmSocket,AppType=%d
+350=Failed to open listener port(%s:%d),ErrCode=%d(%s)
+351=Failed to register socket(%s:%d) handler,ErrCode=%d
+352=The length of SMemFrame is error,and the rest is %d
+353=The frame used in Alarm box is overlong(%d)
+354=Failed to init CommLayer object,ErrCode=%d
+
+379=Failed to encode a file
+380=Received a packet,pid=%d
+381=The queue length of %s:Qw is %d,Qt is %d
+382=Failed to decode a record(ErrCode:%d)
+383=Reject some bill data because too small,BillLen=%d,LeftLen=%d
+384=LeftLen=%d,it is not big enough
+385=Reject some data because the length is smaller than 2
+386=Error APType(%d)
+387=Failed to get packet,pid=%d
+388=Failed to convert a bill
+389=Catch exception(%s)
+390=Failed to init base class in InitInstance
+391=Failed to open INI file in InitInstance
+392=Failed to init format interface in CBillProcess::Init
+393=Invalid 3GPP release
+394=Value of configuration parameter(%s) is invalid
+395=Value of configuration parameter(%s) exceed bill length(%d)
+
+420=Failed to open INI File
+421=InitInstance() returned false:%X
+422=Received CMD_QUIT,exit
+423=Send CMD_QUIT to myself
+424=Packet cache:failed to get packet
+425=Packet cache:failed to put packet
+426=Packet cache:failed to open file:%s
+427=Packet cache:failed to seek file:%s,%d
+428=Packet cache:failed to read file:%s
+429=Packet cache:no packets
+430=Timer manager:failed to start thread
+431=Assert failed at %s,line%d %s
+432=Failed to create communication object
+433=Failed to activate workmodules
+434=Succeed in activing workmodules
+435=Unprocessed msg(PID=%d,MID=%d,CMD=%d)
+436=ALARM  0           Workflow   normal  iGWB  0       MSG   
+437=ALARM  0           Debuginfo    
+438=iGWB  0       MSG   
+439=Sender PID
+440=Receiver PID
+441=Sender MID
+442=Receiver MID
+443=APP Type
+444=MML Client No
+445=MML User Name
+446=MML Client IP
+447=CMD Code
+448=Len Of Data
+449=Message sender
+450=Message receiver
+451=Diagram sequence
+452=Message type
+453=Protocol debug content
+454=Debug Content 
+455=Debug Information 
+456=Failed to send message out(PID=%d,MID=%d,CMD=%d)
+457=Failed to enquire message(PID=%d,MID=%d,CMD=%d)
+458=No corresponding message processor(PID=%d,MID=%d,CMD=%d)
+459=URGENT
+460=IMPORTANT
+461=MINOR
+462=NORMAL
+
+480=Create new date directory %s
+481=Received a packet(PID=%d)
+482=The status is fault
+483=The status is normal,current csn is %d
+484=Failed to save packet %d,ErrCode is %d
+485=Failed to process timer message
+486=Error config(OrigFileMaxSize=%dK)
+487=Succeed in deleting the last file,csn=%d
+488=Failed to delete the last file,csn=%d
+489=Delete a file because of different status files,file csn=%d
+490=Create new file:%s
+491=Begin to recover,resume id=%d,last pid=%d
+492=Recover over
+493=Main and backup status files are both valid
+494=Main status differ with backup status
+495=Main status is the same as backup status
+496=Main status is valid,and backup status is invalid
+497=Main status is invalid,and backup status is valid
+498=Main status is invalid,and backup status is invalid
+499=Main status is valid,and backup status is nonexistent
+500=Main status is invalid,and backup status is nonexistent
+501=Main status is nonexistent,and backup status is valid
+502=Main status is nonexistent,and backup status is invalid
+503=Main and bak status both are nonexistent
+504=Failed to init base class in InitInstance
+505=Failed to open INI file in CFrontSave::Init
+506=Failed to check status file in CSaveTransaction::Init
+507=Failed to flush main status file in CSaveTransaction::Init
+508=Failed to flush backup status file in CSaveTransaction::Init
+509=Failed to open main status file in CSaveTransaction::Init
+510=Failed to open backup status file in CSaveTransaction::Init
+511=Failed to InitByStatus in CSaveTransaction::Init
+512=Failed to CloseCurFile in CSaveTransaction::Init
+513=Failed to save packet %d,ErrCode is %d
+514=Failed to process timer message
+515=the length of the file is less than the minimum %d byte and configured into the minimum
+516=the length of the file is more than the maximum %d byte and configured into the maximum
+517=the limit of deleting file is less than the minimum %d day and configured into the minimum
+518=the limit of deleting file is more than the maximum %d day and configured into the maximum
+519=the time of creating file is less than the minimum %d second and configured into the minimum
+520=the time of creating file is more than the maximum %d second and configured into the maximum
+521=Orginal cdr package(ID=%u) changed to be empty
+
+522=Failed to copy file
+523=Failed to init source format
+524=Length of source format is invalid
+525=Failed to create dir 
+526=Effective day
+527=Automatically archive log file
+528=Log file(%s) is not found
+529=Found log file(%s),time now is %s
+530=Failed to open config file:%s
+531=Failed to open log file:%s
+532=Failed to get log file status:%s
+533=Failed to remove log file:%s
+534=Remove out-of-date log file %s
+535=Failed to seek to the beginning of the last log struct
+536=Failed to write log
+537=Failed to read log
+538=Failed to open dir %s
+539=Received CMD_WRITE_LOG
+540=Received CMD_MML
+541=Received undefined message,CMD is %d
+542=Received MML command MML_LST_LOG
+543=Serial No.
+544=Type
+545=User Name
+546=Operator IP
+547=Date
+548=Result
+549=Command
+550=Source
+551=Log time is unmatched
+552=Log type is invalid
+553=Log user is invalid
+554=Command explain
+555=Log object is nonexistent
+556=Failed to open INI file
+557=Failed to open log file
+558=LOG Table
+559=No requested log record is found
+560=Reason
+561=Failed to open the file(%s) contained user info
+562=end time
+563=begin time
+564=Couldn't delete online user
+565=end time is less than current time
+566=The start time should be earlier than the end time.
+567=user is offline or network is break
+568=user privilege
+569=username is empty
+570=area
+571=unknown command code(%s)
+572=There is no command(%s) in set(%d)
+573=Command execute partially successfully
+574=MML comand list
+575=Common user executed supperuser's command 
+576=Have not put privilege to new user
+577=Don't operate illegally to supperuser
+578=no query result
+579=Illegal operation,command(%s) is belong to other command group
+580=No fit object for the command
+581=Operation succeed
+582=Operation fail
+583=Access denied
+584=Invalid command
+585=Account does not exist
+586=User name can not be empty
+587=User description can not be empty
+588=Password error
+589=Password is unmatched
+590=Hands shake OK
+591=Failed to open INI file
+592=Register operator successfully
+593=Failed to register operator
+594=Account already exist
+595=Exceed the max number of user
+596=Password is overlong
+597=Account name can not be empty
+598=Operator name
+599=Operator description
+600=Right
+601=Online/Offline
+602=Administrator
+603=Normal user
+604=Online
+605=Offline
+606=Succeed in login
+607=Succeed in logout
+608=Too many users login
+609=User already login
+610=Debug Level
+611=Your password hasn't been changed for a long time, please change it
+612=0
+613=1
+614=2
+615=3
+616=4
+617=99
+618=Version
+619=Failed to init macro
+620=Failed to init user data
+621=Failed to parse MML command(%s)
+622=No target for MML command(%d)
+623=Operation succeed(CMD=%d)
+624=Operation fail(CMD=%d,Code=%d)
+625=Set system parameters(CMD=%d,Para=%d)
+626=Access denied(CMD=%d)
+627=Query BAM version
+628=sessions
+629=iGWB version
+630=the user is not in permitted time range
+631=hint
+632=Failed to init command group configuration file
+633=Commands count is mismatched in [Set%d]
+634=Failed to create user info file(%s)
+635=Invalid user name(%d)
+636=Failed to open user configuration file
+637=Failed to read info(%s) of user(%s)
+638=Failed to write ini info
+639=Invalid format of date para 
+640=Invalid size of date para
+641=unknown command in command group
+642=Invalid time format
+643=user is nonexistent
+644=admin can execute all command
+645=command column 1
+646=command column 2
+647=MML comand table
+648=Couldn't execute system command(%s)
+649=Couldn't add unknown command(%s)
+
+650=Received CMD_EXIT
+651=KERNEL is ready
+652=KERNEL failed to get ready
+653=KERNEL is active
+654=KERNEL failed to activate
+655=Send auxiliary upgrade MML command
+656=Auxiliary upgrade is going on
+657=Auxiliary upgrade failed
+658=Auxiliary upgrade completed
+659=Received CMD_ACTIVE,begin to activate
+660=Received CMD_DEACTIVE,begin to deactivate
+661=Failed to start child process(%s)
+662=Succeed in starting all child processes
+663=%s terminated abnormally
+664=Watch dog exited
+665=Ask for failover
+666=%s is nonextistent
+667=Received auxiliary upgrade command too much
+668=the name bewteen ap(ID=%d) and (ID=%d) could not be same
+
+690=GSN(%s) restarted,RestartCount=%d
+691=Failed to load GTP stack(ID=%d)
+692=Failed to save GTP stack status information
+693=Failed to read sequence file(%d.sn)
+694=Failed to create sequence file(%s),ErrCode=%d(%s)
+695=Establish new GTP stack(%s:%d)
+696=Remove unresponsive stack(ID=%d)
+697=Failed to open net status file,ErrCode=%d(%s)
+698=Failed to write net status file,ErrCode=%d(%s)
+699=Failed to read net status file,ErrCode=%d(%s)
+700=Failed to write or flush net status file,ErrCode=%d(%s)
+701=Failed to read main net status,ErrCode=%d(%s)
+702=Failed to create status file dir(%s),ErrCode=%d(%s)
+703=APType(%d) is undefined
+704=Failed to init NetApp object
+705=Failed to create new status file,ErrCode=%d(%s)
+706=Unrecovery error happenned,restart please
+707=Packet ID error:bWaitForResponse is %d,pid at network is %d,pid at frontsave is %d
+708=Failed to make front bill package(buffer insufficient)
+709=Unrecognized frame,type=%d
+710=Send node alive request
+711=Receive node alive request(ID=%s)
+712=Failed to read %s while releasing GTP bill package
+713=IEBillPackage is error,Count=%d,Len=%d
+714=Failed to open sequence file(%s),ErrCode=%d(%s)
+715=Incorrect frame size,message type=%d,len=%d,ietype=%s offset=%d
+716=Incorrect IE type,message type=%d,len=%d,ietype=%s offset=%d
+717=Incorrect frame size,message type=%d,len=%d,ietype=%s,ielen=%d,offset=%d
+718=Network is active
+719=Network is deactive
+720=Failed to init net status file,ErrCode=%d
+721=Status=%d,ignore CMD_AUXUPGRADE
+722=ALARM  0          ProtocolTrace   IMPORTANT    iGWB  0      MSG
+723=Protocol Trace Content
+724=Msg Sender
+725=Msg Receiver
+726=Msg Type
+727=Sequence Number
+728=Restart count
+729=Information element
+730=Send data record packet
+731=Send possibly duplicated data record packet
+732=Cancel data record packet
+733=Release data record packet
+734=Record count
+735=Record size
+736=Version not supported
+737=Echo request
+738=Echo response
+739=Data record transfer request
+740=Data record transfer response
+741=Node alive request
+742=Node alive response
+743=Redirection request
+744=Redirection response
+745=Unrecognized
+746=IPV6 not supported
+747=Cause
+748=Request accepted
+749=Request related to possibly duplicated packet already fulfilled
+750=System fault
+751=The transimit buffer is almost full
+752=The receive buffer is almost full
+753=Another node is about to go down
+754=This node is about to go down
+755=Unrecognized cause
+756=Redirection cause
+757=Address of recommended node
+758=Node address
+759=Seq of first frame
+760=Frame length is not correct
+761=The length of GTP' frame(%d) exceed the buffer limit length(%d), the buffer will increase to satisfy it
+762=Received GTP' package from 0.0.0.0
+763=Delete ScanStack(NO.%d)
+764=The user is out of his time range
+
+780=Failed to open perf file(%s)
+781=Failed to write perf file
+782=Failed to open dir(%s)
+783=Failed to get perf file status(%s)
+784=Failed to remove perf file(%s)
+785=Remove out-of-date perf file(%s)
+786=Space of front save disk is less than alarm level (%2.3f%%<%d%%)
+787=Space of back save disk is less than alarm level (%2.3f%%<%d%%)
+788=Space of backup media is less than alarm level (%2.3f%%<%d%%)
+789=Space of front save disk is less than handover level (%dM<%dM)
+790=Space of back save disk is less than handover level (%dM<%dM)
+791=Received CMD_SAVE_PERF
+792=Unprocessed CMD(PID=%d,MID=%d,CMD=%d)
+793=Received CMD_ANS_HB_STATUS
+794=Received CMD_MML
+795=Query perf data
+796=Logic disk name 
+797=Logic disk total space 
+798=Logic disk average space 
+799=OS name
+800=Server pack 
+801=Computer name 
+802=CPU percent 
+803=Number of the CPU 
+804=Total physical memory 
+805=Available physical memory 
+806=Total logical memory 
+807=Available logical memory 
+808=Number of the logical disk 
+809=Logical disk info 
+810=Main
+811=Heartbeat
+812=CPU percent
+813=Front Save(MB)
+814=Back Save(MB)
+815=Memory(MB)
+816=AP %d(To GSN)
+817=AP %d(To PRI MEM)
+818=AP %d(To SEC MEM)
+819=ALARM  0           Debuginfo   normal  iGWB  0       MSG   
+820=Failed to init OS DB,maybe because of lacking memory
+821=iGWB Connected IP
+822=%s  =  %s
+823=IP
+824=%s = %d
+825=Number of results
+826=Because of smallness of Handover Space,Adjust Alarm Space as 2 times as it 
+827=app_name
+828=app_no
+829=app_status
+830=file_name
+831=create time
+832=file size(KB)
+833=collector_name
+834=collecting_time
+835=file_count
+836=total files size(KB)
+837=collection stat
+
+840=LIST PRODUCT
+841=LIST BILLTYPE
+842=LIST CHANNEL
+843=LIST ORIGDATE
+844=LIST CHANNELDATE
+845=LST FILE
+846=LST FORMAT
+847=QueryCond%d
+848=PageInfo
+849=BillData
+850=ProductName
+851=BillType
+852=APName
+853=ChannelNo
+854=ChannelName
+855=OrigDateNo
+856=OrigDateName
+857=ChannelDateNo
+858=ChannelDateName
+859=FileName
+860=FormatName
+861=FormatDesc
+862=ChannelInfo
+863=FieldName
+864=FieldDesc
+865=FieldType
+866=Operator
+867=Unit
+868=EnumFlag
+869=EnumValue
+870=HaveNextPage
+871=CurPageNo
+872=CurPercent
+873=The page No. is invalid
+874=The task is nonexistent
+875=Stopped task successfully
+876=Shaking hands is normal
+877=Failed to get page data
+878=Failed to prepare files
+879=Failed to start task
+880=Failed to delete page
+881=Failed to open file
+882=Find empty page
+883=Failed to prepare page data
+884=Failed to get the format
+885=PreparedPages must be less than 100,now it is %d
+886=PageSize must be less than 500,now it is %d
+887=Received undefined CMD(%d)
+888=Failed to init format while initializing task
+889=Failed to open file group 0:0
+890=Failed to delete more pages
+891=Failed to open file group %d:%d
+892=Failed to prepare page data,page No.=%d
+893=Failed to init base class in InitInstance
+894=Failed to init format interface in InitInstance
+895=Failed to open INI file in InitInstance
+896=Error
+897=folder
+898=file
+899=processing info
+900=matched CDRs
+901=first SN in current page
+902=last SN in current page
+903=Failed to get processing info
+904=Failed to save query results
+905=Stop task succeed
+906=Start task succeed
+
+920=Received CMD_AUXUPGRADE,begin Aux. Upgrade
+921=Received CMD_SENDEMPTYPACKET,request BP to receive empty package
+922=Received CMD_ANS_AUXUPGRADE,Aux. Upgrade over
+
+940=Start program(Ver:%s)
+941=Stop program
+942=Received %s,ignored
+943=Received %s,exit
+944=Received signal code=%d,ignored
+945=Received unrecognized signal=%d
+946=Failed to open INI file
+947=O&M process
+948=Kernel process
+
+960=Operation succeed
+961=Operation failed
+962=File Userinfo.dat update failed
+1000=Failed to load SlideWnd stack(ID=%d)
+1001=Failed to save SlideWnd stack status info
+1002=Established new SlideWnd stack,the module No. is %d
+1003=Received wrong-length frame(CMD=%d,Len=%d)
+1004=Received ack-number frame(ack-number=%d)
+1005=Received sync sequence frame(sequence=%d)
+1006=Received unknown frame from Ex(CMD=%d)
+1007=Received alarm message,but there is no link for sending
+1008=iGWB(%s)
+1009=module %d
+1010=Alarm response
+1011=Response alarm(ucHandle=%d)
+1012=The length is error(ErrCode=%d)
+1013=Sync the ack-number
+1014=The ack-number is %d
+1015=Sync the bill-sequence
+1016=The bill-sequence is %d
+1017=Save bill data
+1018=The length of bill is %d,the csn is %d
+1019=Unknown command(%d)
+1020=Binary alarm
+1021=The sending alarm(ID=%d,Para=%d,ucHandle=%d)
+1022=Respond sync ack-number
+1023=Ack bill data
+1024=The acked bill sequence is %d,the ack-number is %d
+1025=Reject bill data
+1026=The expected bill sequence is %d,the ack-number is %d
+1027=CDR decoding error
+1028=Invalid message format
+1029=Version not supported
+1030=No resources available
+1031=Service not supported
+1032=Mandatory IE incorrect
+1033=Mandatory IE missing
+1034=Optional IE incorrect
+1035=Request already fulfilled
+1036=Request not fulfilled
+1037=, license expired
+1038=, net_app not actived
+1039=, inner error
+1040=, unknown error
+1041=, Failed to send(no available link or sending restricted)
+ 
+1050=Unrecognized heartbeat type(%s)
+1051=Failed to create heartbeat link(No.%d,name=%s,type=%d)
+1052=Heartbeat link(No.%d) is broken(name=%s,type=%d)
+1053=Heartbeat link(No.%d) is recovered(name=%s,type=%d)
+1054=Heartbeat is broken
+1055=Heartbeat is recovered
+1056=Failed to start resource(ResName=%s,ResType=%d)
+1057=Failed to stop resource(ResName=%s,ResType=%d)
+1058=Resource is fault(ResName=%s,ResType=%d)
+1059=Asyn resource is fault
+1060=Harddisk is fault(mask code=0x%04XH)
+1061=Harddisk is recovered
+1062=Failed to start asyn resource
+1063=Manual switch starting
+1064=Manual switch failed
+1065=Succeed in activating cluster
+1066=Failed to activate cluster
+1067=Succeed in deactivating cluster
+1068=Begin to failover,(CAUSE=%d)
+1069=Failed to start failover,(CAUSE=%d,ErrCode=%d)
+1070=Failover succeed
+1071=Failover failed
+1072=Responder of failover succeed in activating
+1073=Responder of failover failed to activate
+1074=Begin to aggressively activate cluster
+1075=Succeed in aggressively activating cluster
+1076=Failed to aggressively activate cluster
+1077=Begin to aggressively deactivate cluster
+1078=Aggressively deactivating cluster is completed
+1079=Begin to handover
+1080=Handover succeed
+1081=Handover failed
+1082=Peer node restart
+1083=Local node restarted too many times,failed down
+1084=Failed to get adapter index of %s
+1085=Virtual IP %s already exist in the host
+1086=Virtual IP %s already exist in the LAN
+1087=Failed to takeover IBMRaid resource
+1088=The name of volume resource(%s) need to match the driver label(now %s)
+1089=Failed to add logical drive %s to %s,ErrCode=%d
+1090=The volume of drive %s is wrong
+1091=Volume resource(%s) can not be configured as the system driver
+1092=Succeed in executing ipshahto.exe
+1093=Failed to execute ipshahto.exe
+1094=Failed to open DELL PercRAID handle
+1095=IBM RAID controller detected
+1096=DELL RAID controller detected
+1097=Timed out
+1098=Non-echo type %d recvd
+1099=Someone else's packet
+1100=%d bytes from %s(icmp_seq=%d,time=%d ms)
+1101=Failed to activate me(ErrCode=%d)
+1102=Begin to check resource(%s)
+1103=Resource(%s) is fault,try to local recovery
+1104=Resource(%s) local recovery successfully
+1105=Resource(%s) is OK
+1106=Local status notify(LS=%s,LO=%s)
+1107=Peer status notify(PS=%s,PO=%s)
+1108=All heartbeats:%d,active heartbeats:%d
+1109=Received handover CMD
+1110=Received handover ANS
+1111=Received failover CMD
+1112=Received failover ANS(uSucc=%d)
+1113=Received sync data from AP(%d) Module(%s)
+1114=Received sync data from peer,size=%d
+1115=Send sync data to peer,size=%d
+1116=Received active answer for KERNEL(result=%d)
+1117=Cannot find console window,failed to create icon
+1118=Failed to init cluster(ErrCode=%d)
+1119=Failed to add virtual IP(%s),and ErrCode=%d
+1120=Failed to lock volume(%s), and ErrCode=%d
+1121=Failed to refresh volume(%s),and ErrCode=%d
+1122=Cannot find the volume whose label is %s
+1123=Resources total(%d) is larger than upper limit(%d)
+1124=Resource recovered(ResName=%s,ResType=%d)
+1125=heartbeat is not recoveried yet, try later
+1126=peer node is executing operation%s, try later
+1127=peer node has an instable status%s, try later
+1128=failed to send SWP command%d, try later
+
+1150=Hardware monitor init failed(%s)
+1151=Hardware monitor create fail
+1152=Hardware monitor open convert file(%s) fail
+1160=SNMP Agent init failed(%s)
+1161=SNMP Agent create failed(%s)
+1162=Get SNMP Agent object from dll error
+1163=Succeed to start SNMP Agent thread
+1164=SNMP++ Session Create Fail,
+1165=Huawei ctd.
+1166=Failed to start SNMP Agent thread:
+
+1167=Failed to open NMS status file:
+1168=Find error NMS file 
+1169=Failed to add NMS:
+1170=Failed to delete NMS:
+1171=Failed to modify NMS ip:
+1172=Failed to modify NMS port:
+1173=NMS do not exist
+1174=NMS exist already!
+1175=Failed to get NMS list:
+
+1176=Failed to open query status file:
+1177=Find error query condition file 
+1178=Failed to add query condition:
+1179=Failed to modify query condition:
+1180=Failed to delete query condition:
+1181=Query condition not exist!
+1182=Query conditon exist already!
+
+1183=Set SNMP VB error, Oid = %s, Value = %s 
+1184=SNMP Agent send trap to %s failed: %s
+1185=Invalid Address or DNS Name(%s)
+1186=Oid or Value is equal to NULL
+1187=Too many Oid, number is not greater than 50
+1188=Set PDU error
+1189=Too much NMS server to rigister
+1190=value is invalid
+1191=length is invalid
+
+1200=Accesspoint(%d)'s CollectType must be 1
+1201=Fail to open collector task(ID=%d) in process(%s)
+1202=Collector task(ID=%d) failed
+1203=Failed to create collect task list
+1204=collector task(ID=%d) failed, restarting...
+1205=Fail to reopen collector task(ID=%d)
+1206=Fail to initiate collector task(ID=%d)
+1207=Convertor pool failed to open/create status file(%s)
+1208=Convertor pool failed to read status file(%s)
+1209=Convertor pool failed to write status file(%s)
+1210=Collect task name must be configurated in %s 
+1211=Collector(%s)'s file sn manager 
+1212=No primary link for %s
+1213=Collector(%s) failed to collect file(%s):file not be found
+1214=Collector(%s) collected file(%s), having dismatched length(remote:%d, local:%d)
+1215=Collector(%s) failed to move file:%s to %s
+1216=Collector(%s) failed to collect file:%s to %s
+1217=Collector(%s) failed to get filelist:No available link
+1218=Collector(%s) failed to get fna file(ErrCode:%d)
+1219=Collector(%s) failed to open fna file(%s)(ErrCode:%d)
+1220=Collector(%s) failed to manually collect file(%s):file not be found
+1221=Auto collecting file(%s->%s):have be added in collecting list
+1222=Auto collecting file(%s->%s):Failed to be added in collecting list
+1223=File(%s) failed to be recollected:this file already have be recollected once
+1224=Collector be not found
+1225=Collector is to be running, and be active
+1226=Collector have be set running, but be inactive, due to insufficient disk space
+1227=Collector is to be stopped
+1228=Fail to set AlarmLimit
+1229=Succeed in setting AlarmLimit
+1230=Fail to get module information
+1231=Target file name is illegal
+1232=The designate file have be added in collecting list
+1233=Failed to collect file:the designate file have be removed
+1234=Failed to collect file:the designate file is being collected
+1235=Failed to collect file:the designate file is not close
+1236=Failed to collect file:the designate file is not found
+1237=Failed to collect file:the designate file have incorrect status
+1238=Failed to collect file:unknown reason
+1239=Collect module failed to open/create status file(%s)
+1240=Collect module failed to read status file(%s)
+1241=Collect module failed to write status file(%s)
+1242=schedule type
+1243=schedule info
+1244=collection retry cycle
+1245=collection retry cycle
+1246=collection retry times
+1247=Failed to query collection schedule
+1248=The format of collection schedule info is invalid
+1249=Failed to set collection schedule
+1250=Succeed in setting collection schedule
+1251=collection schedule info
+1252=Failed to query once collection schedule info
+1253=The format of collection schedule time is invalid
+1254=The interval of the new schedule to old schedules is too small
+1255=The new schedule could not be older than now
+1256=Unknown error
+1257=Failed to open direction(%s),(ErrCode:%d)
+1258=Failed to remove outdated CDR file direction
+1259=Succeed in removing outdated CDR file direction
+1260=Failed to remove outdated CDR files
+
+1261=During starting SCP Bill Rvy task, exception(NO.%d) raised
+1262=Succeed in starting SCP Bill Rvy task(NO.%d)
+1263=SCP Bill Rvy task(NO.%d) completed successfully
+1264=Failed to SCP Bill Rvy task(NO.%d), ErrCode = %d
+1265=Failed to create SCP Bill Rvy task working path(%s)
+1266=Alarm output in this workstation is forbidden
+
+1270=Succeeded to initialize license
+1271=Failed to initialize license
+1272=Succeeded to update license
+1273=Failed to update license
+1274=Invalid license
+1275=Temporary license
+
+1280=Can not find the configuration of process(PT=%d)
+1281=Fail to open collector task(ID=%d) in process(%s)
+
+1300=Unrecognized Parameter
+1301=Unrecognized Command
+1302=Invalid Parameter Value
+1303=Repeated parameters presented
+1304=Too many values presented
+1305=Too few values presented
+1306=Essential parameter not presented
+1307=Syntax error
+1308=System not ready
+1309=Parameter not supported
+
+1330=AccessPoint Name
+1331=Item Name
+1332=Subitem Name
+1333=Statistics Express
+1334=Statistics Cycle
+1335=Field Name
+1336=Field Description
+1337=Field Type
+1338=Operator
+1339=Integer
+1340=Enum Flag
+1341=Enum Value
+1342=Query Condition
+1343=No CDR Statistics License
+1344=CDR Statistics Task
+
+1350=Failed to get configuration interface
+
+1355=By Year
+1356=By Month
+1357=By Day
+
+1360=Statistics Configuration
+1361=Statistics Result
+
+1400=Failed to initiate performance task manager
+1401=Activate measurement task
+1402=Suspend measurement task
+1403=Task Name
+1404=Result
+1405=Activate successfully
+1406=Failed to activate
+1407=Suspend successfully
+1408=Failed to suspend task because of nonexistence of task
+1409=%d reports in total
+1410=Task Name
+1411=Task ID
+1412=Time Information
+1413=Counter Information
+1414=Object Information
+1415=Task Description
+1416=Task Creator 
+1417=Task Result
+1418=Measurement Unit
+1419=Run Flag
+1420=Statistic Period
+1421=Start Date
+1422=End Date
+1423=Task Status
+1424=Statistic Time Span
+1425=Start Time 1
+1426=End Time 1
+1427=Start Time 2
+1428=End Time 2
+1429=Start Time 3
+1430=End Time 3
+1431=Task Type
+1432=Span of Period
+1433=Time Type
+1434=Circle day by day
+1435=Circle weekly
+1436=Circle month by month
+1437=Set of statistic time
+1438=Days saving result
+1439=Counter
+1440=Object Instance
+1441=Cause of Failure
+1442=Create task successfully
+1443=Delete task successfully
+1444=Basic Information
+1445=<NULL>
+1446=Semi-permanent Task
+1447=Limited Period Task
+1448=Sunday
+1449=Monday
+1450=Tuesday
+1451=Wednesday
+1452=Thursday
+1453=Friday
+1454=Saturday
+1455=CPU1 Usage
+1456=CPU2 Usage
+1457=Avail physical memory
+1458=Total physical memory
+1459=Avail front storage
+1460=Total front storage
+1461=Avail back storage
+1462=Total back storage
+1463=Received SCDR 
+1464=Received Partial SCDR
+1465=Start Time of Statistic
+1466=Task Result Continued
+
+1467=Perf
+1468=Object Instance%d
+1469=Hardware Performance
+1470=Business Performance AccessPoint%d
+1471=Active
+1472=suspended
+1473=task name exist
+1474=no this task
+1475=Received GCDR 
+1476=Received Partial GCDR
+1477=Received MCDR 
+1478=Received Partial MCDR
+1479=Received SMOCDR 
+1480=Received SMTCDR 
+1481=Received LCSMOCDR 
+1482=Received LCSMTCDR 
+1483=Received LCSNICDR 
+1484=Perf Monitor sampling
+
+1500=Name
+1501=Type
+1502=Size
+1503=Modified
+1504=Created
+1505=Invalid path
+1506=Failed to read directory
+
+1550=List root directory
+1551=List CDR file
+
+1600=ap_name
+1601=local ip
+1602=module NO
+1603=link NO
+1604=link status
+1605=link info is not found
+1606=failed to obtain link status
+1607=LIST all accesspoints' name
+1608=LIST all links' status
+
+1701=Time
+1702=No.
+1703=Name
+1704=File
+1705=Section Name
+1706=Section Name
+1707=No.
+1708=Name
+1709=Desc.
+1710=Type
+1711=Default
+1712=Time
+1713=Must Flag
+1714=Change Flag
+1716=Item
+1717=Name
+1718=Name
+1719=No.
+1720=Name
+1721=Value
+1722=Item
+1723=Set fail
+1724=Set success
+1730=Open file error
+1731=Read file error
+1732=Repeat section
+1733=Invalid section
+1734=Invalid item
+1735=Invalid item name
+1736=Invalid item value
+1737=Repeated item name
+1738=Open file error
+1739=Write file error
+1742=Invalid information
+1743=Repeated information
+1744=Invalid section name
+1745=Invalid format
+1746=Invalid item
+1748=Item value too long
+1749=Null Time 
+1750=Invalid type
+1751=Startup failure
+1752=Start success
+1753=Invalid information
+1755=Invalid name
+1757=Invalid information
+1758=Section name is empty
+1759=Section name is too long
+1760=No item name
+1761=No item value
+1762=No name
+1763=Name too long
+1764=Null value
+1765=Value too long
+
+1801=Open file(%s) failed
+1802=Read file(%s) failed
+1803=Unkown AP type(APName=%s) in config file(%s) was found
+1804=In AP(ID=%d) original bill format(%s) was not found
+1805=In AP(ID=%d) original bill browse format(%s) was not found
+1806=The channel(%s) was not found in AP(ID=%d)
+1807=The channel(%d) was not found in AP(ID=%d)
+1808=In AP(ID=%d)'s channel(ID=%d) final bill format(%s) was not found
+1809=In AP(ID=%d)'s channel(ID=%d) final bill browse format(%s) was not found
+1810=Channel final bill format number in file(%s) is 0 
+1811=Filed(%s) in file(%s) is empty
+1812=By field index(%d) get value of format(%s) failed
+1813=By field index(%d) get format(%s)'s length(%d) of value greator than max length(%d)
+1814=By field index(%d) get format(%s)'s length(%d) of value greator than length of integer type
+1815=In format(%s) the type of field(%s) was unknown
+1816=The function(%s) can not be analysed in format(%s)
+1817=The function(%s) can not be found in format(%s)
+1818=The function(%s) get value by field name(%s) failed in format(%s)
+1819=The function(%s)'s parameter was unknown type in format(%s)
+1820=The expression(%s)'s field parameter(%s) was not found in format(%s)
+1821=In field(%s) of format(%s) the function(%s)'s field parameter(%s) was not found in source format(%s)
+1822=In field(%s) of format(%s) the convert funtion(%s) was not analysed
+1823=In field(%s) of format(%s) the convert funtion(%s)'s default value was not analysed
+1824=In field(%s) of format(%s) the convert funtion(%s)'s const parameter(%s) was unknown type
+1825=In field(%s) of format(%s) the convert funtion(%s) was found
+1826=In field(%s) of format(%s) the convert funtion(%s)'s  parameter number exceed max limit
+1827=When bill convert from source format(%s) to dest format(%s), the field(index=%d) of dest format get the field(index=%d)'s value of source format error
+1828=The length of dest format(%s)'s field (index=%d) less than 1
+1829=The field type of source format can not exceed length of bit field type, beacause dest format(%s)'s field (index=%d) is bit field
+1830=When bill convert from source format(%s) to dest format(%s), the field(index=%d) of dest format convert error
+1831=When a field convert from source format(%s) to dest format(%s), the field(%s) was not found in dest format
+1832=When a field convert from source format(%s) to dest format(%s), the field(index=%d) of dest format get field(index=%d)'value of source format error
+1833=When a field convert from source format(%s) to dest format(%s), the field(index=%d) of dest format convert error
+1834=The parameter number of function(%s) must be %d
+1835=When distinguish condition initial, the format(%s) was not found in format library
+1836=Load config file of format(%s) failed
+1837=The field number of format(%s) is 0 
+1838=The field(%s) in format(%s) must be bit field, beacause field before it does not fill the space of bit field allocating 
+1839=The length of field(%s) in format(%s) add the field length before it exceed the space of bit field allocating
+1840=The length of format(%s) was not multiple of BYTE
+1841=The bill process object can be initialed by AP(ID=0)
+1842=The IGWB object of bill process object(APID=%d) initial failed
+1843=The bill process object can not find AP(ID=%d)
+1844=The format library of IGWB object(APID=%d) initial failed
+1845=When covnert from infix expression to postfix expression, the input infix expression is empty
+1846=When covnert from infix expression to postfix expression, in expression(%s) there is invalid string(%s)  before function item \'$\'
+1847=When covnert from infix expression to postfix expression, in expression(%s) there is no end char \')\' after function item
+1848=When covnert from infix expression to postfix expression, in expression(%s) function item(%s) is error
+1849=When covnert from infix expression to postfix expression, in expression(%s) there is invalid string(%s)  before string item
+1850=When covnert from infix expression to postfix expression, in expression(%s) there is no end char after string item
+1851=When covnert from infix expression to postfix expression, in expression(%s) there is unknown data type(%s)
+1852=When covnert from infix expression to postfix expression, in expression(%s) there is invalid string(%s)  before bracket item \'(\'
+1853=The expression can not be empty
+1854=When Calculate expression(%s), get value of varriant(%s)
+1855=When Calculate expression(%s), get value of function(%s)
+1856=When Calculate expression(%s), illegal operator(%s) was found 
+1857=When Calculate expression(%s), there is divid by zero
+1858=When Calculate expression(%s), illegal calculate relation was found
+1859=The parameter number of function(%s) can not be %d
+
+1900=token
+1901=ciphertext
+1902=The Username beginning as M2000 is reserved
+1903=Warning
+
+1904=AlarmID
+1905=AlarmName
+1906=Shield
+
+2000=Failed to register socket,error code returned %d,while connecting BS
+2001=Failed to connect BS: ip= "%s", port = "%d"
+2002=Failed to open ini file
+2003=Failed to get task%d path
+2004=Failed to get config info
+2005=Failed to get status info
+2006=Failed to open directory
+2007=The content of status file error
+2008=Failed to open cdr file: %s
+2009=Failed to fseek file= %s, offset=%d
+2010=Failed to allocate memory
+2011=Failed to read file : %s
+2012=Failed to write status file
+2013=Succeeded in send CDR packet:id=%d,filename=%s,pos=%d
+
+3056=ALARM  0          ACK   Info    CGW  0      BillAlarm
+3436=ALARM  0           Workflow   normal  CGW  0       MSG   
+3438=CGW  0       MSG   
+3629=CGW version
+3722=ALARM  0          ProtocolTrace   IMPORTANT    CGW  0      MSG
+3819=ALARM  0           Debuginfo   normal  CGW  0       MSG   
+3821=CGW Connected IP
+4008=CGW(%s)
+
+5000=HUAWEI
+5001=Session ID
+5002=Produce CDR by client
+5003=available space is zero
+5004=File alarmhistory.his update failed 
+5005=Set Alarm shield failed
+5006=ProductName
+5007=Index

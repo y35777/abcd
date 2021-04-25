@@ -1,0 +1,147 @@
+
+1、预备条件：
+JsonCPP类库http://sourceforge.net/projects/jsoncpp/?source=dlp
+SCONS编译器http://sourceforge.net/projects/scons/?source=dlp
+Pythonhttp://www.python.org/
+JsonCPP类库需要Scons编译器来编译，而Scons需要Python安装了才能使用。具体安装步骤请参见文件夹下的ReadMe文件。
+
+2、
+
+安装scons:
+
+sudo apt-get install scons
+
+解包jsoncpp:
+
+tar -zxf jsoncpp-src-0.5.0.tar.gz
+
+jsoncpp安装：
+
+解包后进入其目录。输入以下命令：
+
+scons platform=linux-gcc  就会安装成功
+
+3、
+
+上述已经完成jsoncpp的编译，在解压目录jsoncpp-src-0.5.0/libs/linux-gcc-4.8下可以看到生成了两个文件：
+    libjson_linux-gcc-4.8_libmt.a
+    libjson_linux-gcc-4.8_libmt.so
+
+这两个分别是生成静态和动态库文件。如下图所示：
+
+把.a 和.so 文件拷贝到/usrl/lib 目录下（参考了不同资料，说法并不统一，有的是拷贝到/lib下，有的则是/usr/local/lib），可以为了方便编译给它改个名字libjsonlib.a
+
+同样，将解包目录下的（/home/liujiepeng/Downloads/jsoncpp-src-0.5.0）的include拷贝到/usr/lib下面。
+
+sudo mv include/json/ /usr/include/
+
+移动之后的结果：
+
+
+
+4、代码测试：
+
+测试环境为Qtcreator，所以需要在LIBS中对其进行添加：
+
+在pro中进行添加LIBS += /usr/lib/libjson_linux-gcc-4.8_libmt.so
+
+如下图所示：
+
+
+
+当然，多数情况下是将动态链接库的名字改得简单些。
+
+也可以将.a和.so的文件直接复制在工程目录下，那么就不用写那么长的路径，直接"./libjson_linux-gcc-4.8_libmt.so"就可以了。
+
+
+
+代码如下：
+
+#include<json/json.h>
+#include<iostream>
+using namespace std;
+ 
+int main(int argc, char** argv)
+ 
+{
+ 
+Json::Value root;
+Json::FastWriter fast;
+root["ModuleType"]= Json::Value("你好");
+root["ModuleCode"]= Json::Value("22");
+root["ModuleDesc"]= Json::Value("33");
+root["DateTime"]= Json::Value("44");
+root["LogType"]= Json::Value("55");
+cout<<fast.write(root)<<endl;
+return 0;
+}
+Jsoncpp 的 Json::Writer 类是一个纯虚类，并不能直接使用。在此我们使用 Json::Writer 的子类：Json::FastWriter、Json::StyledWriter、Json::StyledStreamWriter。
+
+测试结果：
+
+
+
+5、采用命令行的形式进行编译：
+
+编译的语句：
+
+g++ -o client client.c -L/usr/lib/libjson_linux-gcc-4.8_libmt.a /usr/lib/libjson_linux-gcc-4.8_libmt.so
+
+结果如下：
+
+
+
+注明：当为存放位置建立一个别名时，可以采用以下的方式$LD_LIBRARY_PATH/libjson_linux-gcc-4.8_libmt.a$LD_LIBRARY_PATH/libjson_linux-gcc-4.8_libmt.so
+
+6、json的读写例子2
+
+#include<json/json.h>
+#include<iostream>
+using namespace std;
+ 
+int main(int argc, char** argv)
+ 
+{    
+    Json::Value root;
+    Json::FastWriter fast;
+    Json::Value json_temp;// 临时对象，供如下代码使用
+    json_temp["name"] = Json::Value("helloworld");
+    json_temp["age"] = Json::Value(26);
+ 
+    root["a"]= Json::Value("1");//字符型.新建一个 Key（名为：a），赋予字符串值："value_string"。
+    root["b"]= Json::Value(2);//数字
+    root["c"]= Json::Value(false);//新建一个 Key（名为：c），赋予bool值：false。
+    root["d"]= Json::Value(3.14);//新建一个 Key（名为：d），赋予 double 值：3.14
+    root["key_object"]= json_temp;//新建一个 Key（名为：key_object），赋予 json::Value 对象值
+    root["key_array"].append("array_string");// 新建一个 Key（名为：key_array），类型为数组，对第一个元素赋值为字符串："array_string"。
+    root["key_array"].append(1234);
+ 
+    cout<<fast.write(root)<<endl;
+    Json::StyledWriter styled_writer;//另一种格式化的方式,输出结果的格式不一样
+    cout << styled_writer.write(root) <<endl;
+    //
+    cout<<"读取root中各个成员的信息:"<<endl;
+    string a = root["a"].asString();
+    cout<<"a的值:"<<a<<endl;
+    string name=root["key_object"]["name"].asString();
+    cout<<"读取子节点信息:"<<name<<endl;
+    //Json::Reader 是用于读取的，说的确切点，是用于将字符串转换为 Json::Value 对象的
+    cout<<"以下展现读操作:"<<endl;
+    Json::Reader reader;
+    Json::Value json_object;
+    Json::Value json_object1;
+    const char* json_document = "{\"age\": 26,\"name\" :\"helloworld\"}";
+    const char *json_my = "{\"candidates\":[{\"accesskey\":\"BC75CA64\",\"adjust\":0,\"duration\":278000,\"id\":\"16080455\",\"score\":60,\"singer\":\"席琳迪翁\",\"song\":\"my heart will good go on\",\"uid\":\"1000000010\"}],\"info\":\"OK\",\"keyword\":\"Céline Dion - My Heart Will Go On\",\"proposal\":\"16080455\",\"status\":200}";
+    if (!reader.parse(json_document, json_object))
+        return 0;
+    cout << json_object["name"];//自带换行?
+    cout << json_object["age"] << endl;
+ 
+    if (!reader.parse(json_my, json_object1))
+        return 0;
+    Json::StyledWriter styled_writer1;//另一种格式化的方式,输出结果的格式不一样
+    cout << json_object1["keyword"];//自带换行?
+    cout << styled_writer1.write(json_object1) <<endl;
+    return 0;
+ 
+}

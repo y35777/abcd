@@ -1,0 +1,1846 @@
+[APCount]
+SectList = Common
+Relation = &AccessPoint%接入点号%
+Type = NUM
+Desc = 接入点个数
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToMsg]
+SectList = Common
+Relation = 
+Type = NUM
+Desc = 进程间通信端口
+Default = 9999
+MustFlag = NO
+UpdateFlag = YES
+
+[ClusterMode]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = 双机模式 (1-双机模式，0-单机模式，V200R002C02及以后用以取代NoCluster配置项)。
+Default = 1:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[NoCluster]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = 是否是单机模块 (V200R002C01及以前使用的参数，0-双机模式，1-单机模式，V200R002C02及以后被ClusterMode取代)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = NO
+
+[ServerNo]
+SectList = Common
+Relation = 
+Type = ENUM
+Desc = 集群节点编号 (0- 主机，1-备机)。
+Default = 0:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[MSGOUTLevel]
+SectList = Common
+Relation = 
+Type = NUM
+Desc = 调试信息输出级别（取值范围：0-15）。
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[XmlFontSet]
+SectList = Common
+Relation = 
+Type = STR
+Desc = 指示XML文档编码时用的字符集（中文版本中缺省为GB2312，英文版本中缺省为ISO8859-1）
+Default = GB2312
+MustFlag = NO
+UpdateFlag = YES
+
+[AddModuleNum]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 在cc08交换机的话单首部增加一个字节,表示模块号.0:不增加,1:增加
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CodeKeyCount]
+SectList = AccessPoint%接入点号%
+Relation = &CodeKey%业务键号%
+Type = NUM
+Desc = 业务键组数（仅用于NGN的智能可选功能，配置于scp_config.ini文件）。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[CodeKey%业务键号%]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 业务键（仅用于NGN的智能可选功能，配置于scp_config.ini文件）。
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[NICount]
+SectList = AccessPoint%AP Index%
+Relation = &DPC%网际标识号%
+Type = NUM
+Desc = 网际标识数（仅用于NGN的智能可选功能，配置于scp_config.ini文件）。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[DPC%网际标识号%]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 网际标识（仅用于NGN的智能可选功能，配置于scp_config.ini文件）。
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[APType]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 接入点类型 (-1-无效,0-128, 1-MSC, 2-STP, 3-PacketSwitch, 5-SOFTX, 6-WLAN)。
+Default = -1:-1,0,1,2,3,5,6
+MustFlag = YES
+UpdateFlag = YES
+
+[CollectType]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 当取值大于0,表示是CO接入点 (0-AP接入点类型,1-S1240,2-5ESS,3-EWSD,4-CC08,5-ZXJ10,6-SMP)。
+Default = 0:0,1,2,3,4,5,6
+MustFlag = NO
+UpdateFlag = YES
+
+[CollectCfgPath]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 采集接入点的配置文件绝对路径名
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[APName]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 接入点名（注意：不要随意改变）。
+Default =
+MustFlag = YES
+UpdateFlag = YES
+
+[Release]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 3GPP的Release，当APType为3（PacketSwitch）时，必须配置。
+Default = R98:R98,R99,R4
+MustFlag = NO
+UpdateFlag = YES
+
+[FmtDll]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 3GPP用到的ASN.1对态库，APType为3（PacketSwitch）时，必须配置。
+Default = :r98_760,r98_770,r99_360,r99_3a0,r4_440
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalSPFileFmt]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 最终话单是否为特殊格式 (0-不是特殊格式,1-是特殊格式)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRCheckSpan]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 错误话单出现的间隔限制（单位：秒）。
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRCheckCount]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 错误话单出现次数限制（单位：张）。
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[MustMerge]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 是否需要话单合并,只在分组域产品有效 (0-不需要,1-需要)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Redistribute]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 是否需要把前存盘的一条话单分拣成满足条件的后存盘的多个通道 (0-不需要,1-需要)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxPackageSize]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 话单打包的最大尺寸 (单位: KB)。
+Default = 5000 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxNewFrmCount]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 能接收的最大话单包数 （单位: KB)。
+Default = 1500
+MustFlag = NO
+UpdateFlag = YES
+
+[LowAtTime]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 低潮打包时间间隔 (单位: 毫秒)。
+Default = 1500 
+MustFlag = NO
+UpdateFlag = YES
+
+[LowAtSize]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 低潮打包尺寸 (单位: KB)。
+Default = 1024 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxEmptyPackage]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 辅助升级时每秒发送的最大空包数。
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[UdpTcpMask]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = PS域对于Ga接口采用UDP或TCP的控制掩码(0-UDP及TCP都不可用，1-UDP可用TCP不可用，2-UDP不可用TCP可用，3-UDP及TCP都可用)
+Default = 3:0,1,2,3
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToEx]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 该接入点与交换机通信的主链路的本地IP地址。
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIpToExBak]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 该接入点与交换机通信的备链路的本地IP地址。
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToEx]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 该接入点与交换机通信的主链路的端口（PS域的缺省值为3386，CS域的缺省值为9900）。
+Default = 3386
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToExBak]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc =  该接入点与交换机通信的备链路的端口（当接入点与NGN通讯的端口号默认为9900)。
+Default = 3386
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToExUdp]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 在UDP方式下，该接入点与GSN通信的主链路的本地IP地址（缺省值为LocalIpToEx的配置，仅当与TCP配置不同时在此列出）。
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIpToExBakUdp]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 在UDP方式下，该接入点与GSN通信的备链路的本地IP地址（缺省值为LocalIpToExBak的配置，仅当与TCP配置不同时在此列出）。
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = NO
+
+[LocalPortToExUdp]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 在UDP方式下，该接入点与GSN通信的主链路的端口（缺省值为LocalPortToEx的配置，仅当与TCP配置不同时在此列出）。
+Default = 3386
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalPortToExBakUdp]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 在UDP方式下，该接入点与GSN通信的备链路的端口（缺省值为LocalPortToExBak的配置，仅当与TCP配置不同时在此列出）。
+Default = 3386
+MustFlag = NO
+UpdateFlag = YES
+
+[MultiIPGsnCount]
+SectList = AccessPoint%接入点号%
+Relation = &GsnIPTable%Gsn IP地址表号%
+Type = NUM
+Desc = GSN IP地址列表的个数。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[GsnIPTable%Gsn IP地址表号%]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = GSN IP地址列表（只用列出存在双平台的GSN的所有IP地址，对于单IP的GSN不用在些列出，格式为:"GSN标识:IP1，IP2……"）。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DelGsnIP]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 已删除的GSN IP地址（将所有不再接入的GSN的所有IP地址全部列到这里，IP地址之间用','分隔）。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[RedirAddress]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 重定向地址。
+Default = 0.0.0.0
+MustFlag = NO
+UpdateFlag = YES
+
+[HisFrmCount]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 历史帧计数
+Default = 1500
+MustFlag = NO
+UpdateFlag = YES
+
+[EchoReqInv]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 发送Echo Request帧的间隔时间, 单位: 秒, 取值范围: 0-300，超出范围取60
+Default = 60
+MustFlag = NO
+UpdateFlag = YES
+
+[ReqTimeOut]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 发送历史Request帧的间隔时间. Unit: 秒,取值范围: 1,2,4,8,超出范围取2
+Default = 2
+MustFlag = NO
+UpdateFlag = YES
+
+[TimeOutRpt]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 未收到回复的历史Request帧可被再次发送的次数,取值范围: 1~6,超出范围取5
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[LinkTimeOut]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 最大链接中断时间. 单位: 秒
+Default = 6
+MustFlag = NO
+UpdateFlag = YES
+
+[MpuWindowSize]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = MPU窗口大小
+Default = 150
+MustFlag = NO
+UpdateFlag = YES
+
+[BauWindowSize]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = IGWB滑动窗口大小
+Default = 2000
+MustFlag = NO
+UpdateFlag = YES
+
+[BillRecSize]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 话单记录大小. 单位: 字节
+Default = 261 
+MustFlag = NO
+UpdateFlag = YES
+
+[GsnIp]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = IP
+Desc = 接CG的GSN地址
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[GtpBufLimit]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = GTP buffer的限制. 单位: 字节, 范围: 2048－65535
+Default = 8192
+MustFlag = NO
+UpdateFlag = YES
+
+[IpFilterMode]
+SectList = AccessPoint%接入点号%^MML
+Relation = 
+Type = ENUM
+Desc = IP过滤限制 (0-限制,1-不限制,2-不启用IP过滤)
+Default = 2:0,1,2
+MustFlag = NO
+UpdateFlag = YES
+
+[IPNumber]
+SectList = AccessPoint%接入点号%^MML
+Relation = &IP%索引号%
+Type = NUM
+Desc = 限制IP的个数
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[IP%索引号%]
+SectList = AccessPoint%接入点号%^MML
+Relation = 
+Type = IP
+Desc = 限制的IP地址
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[BinAlarmSend]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 发送二进制告警标志 (0-不发送,1-发送，对于NGN的接入点，须配置为1)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BaseID]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 告警ID基准值（对于NGN，须配置为3200）
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmShield]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 告警屏蔽码（二进制告警使用）
+Default = 111111111111111111111
+MustFlag = NO
+UpdateFlag = YES
+
+[SendAlarmTimeOut]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 二进制告警发送超时时间（单位：秒）
+Default = 20
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmBoxUsingMode]
+SectList = Alarm
+Relation = 
+Type = NUM
+Desc = 告警箱的连接方式(0-不连告警箱；1-通过LMT连接告警箱；2-通过CG连告警箱；3-通过LMT和CG连接告警箱)
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmBoxPortName]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = 连接告警箱的串口名称(UNIX: /dev/term/b,,Windows:COM2)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[ProcAllAPAlarm]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 处理所有接入点的二进制告警标志(0-不处理,1-处理)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MustConvert]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 格式转换标志(0-不转换,1-转换)
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxWaitUsrs]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 话单合并的最大等待用户数
+Default = 200000
+MustFlag = NO
+UpdateFlag = YES
+
+[SupportDST]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 支持夏令时标志(0-不支持,1-支持)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackSavePatchName]
+SectList = DiskFile^AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 第二份话单的补丁特性名
+Default =
+MustFlag = NO
+UpdateFlag = YES
+
+[UseInCMCC]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 使用带序列号的文件名标志 (0-不使用,1-使用)。
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckOMField]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 是否对OM字段进行检查 (0-不检查,1-检查,仅用于3GPP R4)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[OMFieldCfgFile]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = OM字段的定义描述文件 (缺省为3GPP R4协议中定义的OM字段,若无不同可不用配置该文件,仅用于3GPP R4)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[UseXml]
+SectList = Perf^Log^CdrStat^Alarm
+Relation = 
+Type = ENUM
+Desc = 是否采用XML文档(0-不采用XML,1-采用XML)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[StatBeginTime]
+SectList = CdrStat
+Relation = 
+Type = STR
+Desc = 统计开始时间(格式为 HH:MM:SS)
+Default = 02:00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[StatBillType]
+SectList = CdrStat
+Relation = 
+Type = ENUM
+Desc = 统计的话单类型(0为前存盘话单,1为后存盘话单)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[LicenseDir]
+SectList = License
+Relation = 
+Type = STR
+Desc = License文件目录
+Default = ./config/license
+MustFlag = NO
+UpdateFlag = YES
+
+[LicenseTimer]
+SectList = License
+Relation = 
+Type = NUM
+Desc = License有效性检测周期(取值范围:10-600秒)
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[LogSaveDays]
+SectList = Log
+Relation = 
+Type = NUM
+Desc = 日志文件保存天数 (单位: 天)。
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[LogRootDir]
+SectList = Log
+Relation = 
+Type = STR
+Desc = 日志保存目录(UNIX下/var/other/log,Windows下d:\other\log)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[ArchiveTime]
+SectList = Log
+Relation = 
+Type = STR
+Desc = 日志归档时间（规则：HH:MM:SS）
+Default = 02:00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[ArchiveDir]
+SectList = Log
+Relation = 
+Type = STR
+Desc = 日志归档目录（UNIX下/var/other/log_archive,Windows下d:\other\log_archive）
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUSTVER]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = Sun Cluster的版本号（只在Solaris平台下有效）。
+Default = 3.0:2.2,3.0
+MustFlag = NO
+UpdateFlag = YES
+
+[HeartBeatBroken]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = 心跳中断时间阀值（单位: 秒）。
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[InstallShareDiskArray]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = 是否安装共享磁盘阵列（0-未安装,1-安装）。
+Default = 1:0,1
+MustFlag = YES
+UpdateFlag = YES
+
+[HeartBeatCount]
+SectList = Cluster
+Relation = &Link%心跳索引号%
+Type = NUM
+Desc = 心跳链路数目
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[ResourceCount]
+SectList = Cluster
+Relation = &Resource%资源索引号%
+Type = NUM
+Desc = 双机资源数。
+Default = 0
+MustFlag = YES
+UpdateFlag = YES
+
+[AsynResActiveTimeOut]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = 异步资源激活操作的超时时间 (单位: 秒)。
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[AsynResDeActiveTimeOut]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = 异步资源去激活操作的超时时间 (单位: 秒)。
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[MinActiveInv]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = 集群节点两次激活的最小时间差 (单位: 秒)。
+Default = 120
+MustFlag = NO
+UpdateFlag = YES
+
+[SwitchMode]
+SectList = Cluster
+Relation = 
+Type = ENUM
+Desc = 当主用服务器故障恢复时的切换策略（0-自动回换,1-不自动回换）。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxActiveFailTimes]
+SectList = Cluster
+Relation = 
+Type = NUM
+Desc = 最大激活失败次数
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[ResType]
+SectList = Resource%资源索引号%
+Relation = 
+Type = ENUM
+Desc = 资源类型(IP-虚拟IP,Volume-通用共享磁盘阵列,IBMVolume-IBM磁盘阵列)
+Default = :IP,Volume,IBMVolume
+MustFlag = YES
+UpdateFlag = YES
+
+[ResName]
+SectList = Resource%资源索引号%
+Relation = 
+Type = STR
+Desc = 资源名称
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[StaticsRes]
+SectList = Resource%资源索引号%
+Relation = 
+Type = ENUM
+Desc = 静态资源标识(0-否,1-是)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[SwitchGroup]
+SectList = Resource%资源索引号%
+Relation = 
+Type = NUM
+Desc = 资源组号，当取值为0时表示该资源不分组，为非零值时表示所属资源组号，仅当该组所有资源全部失效时才发生倒换(用于双平面)
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalRecovery]
+SectList = Resource%资源索引号%
+Relation = 
+Type = NUM
+Desc = 本地恢复次数
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[OriginIP]
+SectList = Resource%资源索引号%
+Relation = 
+Type = IP
+Desc = 连主机本地原始IP。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[VirtualIP]
+SectList = Resource%资源索引号%
+Relation = 
+Type = IP
+Desc = 连主机虚拟IP
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[VirtualMask]
+SectList = Resource%资源索引号%
+Relation = 
+Type = IP
+Desc = 连主机虚拟IP地址掩码
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckDisConn]
+SectList = Resource%资源索引号%
+Relation = 
+Type = ENUM
+Desc = 针对每一个IP资源，是否检测网线的连接情况（1表示要检测，0表示不检测）。
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Type]
+SectList = Link%心跳索引号%
+Relation = 
+Type = ENUM
+Desc = 心跳链路类型(UDP-网线,COM-串口)
+Default = UDP:UDP,COM
+MustFlag = YES
+UpdateFlag = YES
+
+[Name]
+SectList = Link%心跳索引号%
+Relation = 
+Type = STR
+Desc = 心跳链路名称
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIP]
+SectList = Link%心跳索引号%
+Relation = 
+Type = IP
+Desc = 本端心跳IP
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[PeerIP]
+SectList = Link%心跳索引号%
+Relation = 
+Type = IP
+Desc = 对端心跳IP
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[Port]
+SectList = Link%心跳索引号%
+Relation = 
+Type = ENUM
+Desc = 心跳端口(UDP时11228,COM时1或者2)
+Default = 11228:1,2,11228
+MustFlag = NO
+UpdateFlag = YES
+
+[SERVICERES]
+SectList = AgentAlarm
+Relation = 
+Type = STR
+Desc = 服务资源
+Default = FTP
+MustFlag = NO
+UpdateFlag = YES
+
+[TRACEDebug]
+SectList = Alarm
+Relation = 
+Type = ENUM
+Desc = 告警写Trace(0-不写,1-写) 
+Default = 0:0,1 
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmHistoryPath]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = 历史告警目录(UNIX下为/var/other/alarm,Windows下为d:\other\alarm)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestFilesSaveDays]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 目的路径的文件保存天数,如果配置大于365,则取值为365,配置为0为不删除
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[SearchFilesInterval]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 备份模块备份文件的扫描周期,单位秒(30－604800(7天))
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[ReConnectInterval]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 备份失败时,重连FTP Server的时间间隔，单位: 秒, 取值范围: 1-3600
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupRetryTimes]
+SectList = NetBackup
+Relation = 
+Type = NUM
+Desc = 备份文件失败时重新连接的次数(0－5)。
+Default = 2
+MustFlag = NO
+UpdateFlag = YES
+
+[SourceDir]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 备份任务源路径(Unix下/var/frontsave,Windows下d:/frontsave)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestDir]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 备份任务目的路径(Unix下/var/frontsave/backup,Windows下d:/frontsave/backup)
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[DestHostIP]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = IP
+Desc = 目的机器的IP地址，本地备份应为"Local"
+Default = 127.0.0.1 
+MustFlag = YES
+UpdateFlag = YES
+
+[DestHostIPBak]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = IP
+Desc = 目的机器的备份链路的IP地址（当远端主机为双链路时使用）
+Default = 127.0.0.1 
+MustFlag = NO
+UpdateFlag = YES
+
+[DelAfterBak]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = ENUM
+Desc = 备份后删除源文件标志(0-不删除,1-删除)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupLastFile]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = ENUM
+Desc = 备份最后一个文件标志(0-不备份,1-备份)
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupTimeout]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 备份任务超时，单位秒(60－605000)
+Default = 3000
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupTaskCount]
+SectList = NetBackup
+Relation = &BackupTask%备份任务号%
+Type = NUM
+Desc = 备份任务个数
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[UserName]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = FTP用户名(最大长度255)
+Default = anonymous
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIP]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = IP
+Desc = 用于连接FTP Server的本地IP。
+Default = 127.0.0.1
+MustFlag = YES
+UpdateFlag = YES
+
+[LocalIPBak]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = IP
+Desc = 用于连接FTP Server的备份链路的本地IP（当远端主机为双链路时使用）。
+Default = 127.0.0.1
+MustFlag = NO
+UpdateFlag = YES
+
+[BeforeEncode]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = ENUM
+Desc = 配置为1的时候，表示密码是明文，iGWB会自动对密码进行加密，然后将这个参数修改为0，表示已经加过密了。
+Default = 1:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[Password]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 登录FTP Server的口令。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BackupStatusFile]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 备份任务状态文件的存放路径 (Windows: d:\StatusFile\Status, UNIX: var/other/statusfiles)。
+Default = 
+MustFlag = NO
+UpdateFlag = NO
+
+[FileSaveDays]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 源文件保留天数
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[FilePoolID]
+SectList = BackupTask%备份任务号%
+Relation = 
+Type = NUM
+Desc = 备份任务的文件池ID（对于过期FileSaveDays天的源文件，需要同一ID的所有备份任务完成备份操作后才能删除，-1表示不分组）
+Default = -1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogEnable]
+SectList = NetBackup^BackupTask%备份任务号%^DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = ENUM
+Desc = 是否打开备份稽核日志功能（0表示不打开，1表示打开）
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLabel]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 在备份稽核日志功能中需要标出各个备份任务的标签（主要用于稽核日志的命名，缺省值为备份任务号）
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogDestDir]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 在备份稽核日志功能中，配置稽核日志送往的远端主机的目录
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_begin_time]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 定时备份的开始时间
+Default = 00:00
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_end_time]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 定时备份的结束时间
+Default = 23:59
+MustFlag = NO
+UpdateFlag = YES
+
+[backup_list_time]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 备份时间列表
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[FtpIsPassive]
+SectList = Common^AccessPoint%接入点号%^NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = ENUM
+Desc = FTP Client支持Passive方式和Port方式(0:Port,1:Passive).
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalIpToMMLClient]
+SectList = MML
+Relation = 
+Type = IP
+Desc = 链接MML客户端的IP地址
+Default = 0.0.0.0
+MustFlag = YES
+UpdateFlag = YES
+
+[PersistUser]
+SectList = MML
+Relation = 
+Type = STR
+Desc = MML用户信息保存文件 (UNIX下/var/other/mml,Windows下d:\other\mml)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToCM]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = MML客户端维护端口。
+Default = 6000
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToAR]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = MML客户端告警端口。
+Default = 6001 
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToPF]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = MML客户端性能端口。
+Default = 6002
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToRD]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = MML客户端调试端口。
+Default = 6007
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxUserNumber]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = 系统允许的最大用户数, 范围: 1-30。
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxConnectUserNumber]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = 系统允许的MML客户端最大链接数。
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[LoginFailCount]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = MML用户登录允许失败次数. 范围: 3-6。
+Default = 3
+MustFlag = NO
+UpdateFlag = YES
+
+[PerfSaveDays]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 性能统计数据文件的保存天数 (单位: 天，默认值: 7天)。
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[StatInterval]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 磁盘空间检测时间间隔 (单位: 秒)。
+Default = 180
+MustFlag = NO
+UpdateFlag = YES
+
+[MonitorPeriod]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 性能统计周期,单位: 秒,取值范围: 5秒-60秒
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[CPUMaxLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = CPU过载的上限(70%-90%)超出此范围取默认值
+Default = 70
+MustFlag = NO
+UpdateFlag = YES
+
+[CPUMinLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = CPU过载的下限(25%-50%)超出此范围取默认值
+Default = 45
+MustFlag = NO
+UpdateFlag = YES
+
+[MemoryMaxLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 内存过载的上限(70-90)超出此范围取默认值。
+Default = 80
+MustFlag = NO
+UpdateFlag = YES
+
+[MemeoryMinLimit]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 内存过载恢复的界限(20-50)超出此范围取默认值。
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[MemoryMidLimit]
+SectList = Perf
+Relation =
+Type = NUM
+Desc = 内存过载的下限(50-80)超出此范围取默认值。
+Default = 60
+MustFlag = NO
+UpdateFlag = YES
+
+[MeanValueSpan]
+SectList = Perf
+Relation = 
+Type = NUM
+Desc = 均值周期(5-250)超出此范围取默认值。
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[PageSize]
+SectList = OM
+Relation = 
+Type = NUM
+Desc = 话单浏览时每页包含话单张数。
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[DisplayErrBill]
+SectList = OM
+Relation = 
+Type = ENUM
+Desc = 显示错误话单标志 (0-不显示,1-显示)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontSaveRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = 原始话单的存放根路径 (UNIX:/var/frontsave,Windows:d:\frontsave)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BackSaveRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = 最终话单的存放根路径 (UNIX:/var/backsave,Windows:e:\backsave)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MainStatusRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = 主状态文件的存放根目录(UNIX:/var/frontsave,Windows:d:\StatusFile)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[BakStatusRootDir]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = 备状态文件的存放根目录 (UNIX:/var/backsave,Windows:e:\StatusFileB)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[StatusBackupSrcDir]
+SectList = DiskFile^NetBackup
+Relation = 
+Type = STR
+Desc = 状态文件备份的源路径目录 (UNIX: /var/other/statusfiles, Windows: d:\StatusFile\Status)。
+Default = 
+MustFlag = NO
+UpdateFlag = NO
+
+[OrigFileMaxSize]
+SectList = DiskFile^AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 原始话单文件的正常大小(单位: KB, 取值范围: 3MB-20MB)。
+Default = 3072
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalFileMaxSize]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 最终话单文件的大小,单位: KB, 取值范围: 64K－20MB
+Default = 1024
+MustFlag = NO
+UpdateFlag = YES
+
+[FinalFileMaxTime]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 最终话单文件的最大生成时间 (单位: 秒，取值范围: 5秒-3600秒)。
+Default = 1800
+MustFlag = NO
+UpdateFlag = YES
+
+[CsnLen]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 最终话单文件序列号的长度。
+Default = 8
+MustFlag = NO
+UpdateFlag = YES
+
+[StartCsn]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 最终话单的起始文件序列号。
+Default = 1
+MustFlag = NO
+UpdateFlag = YES
+
+[CsnStep]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 最终话单的文件序列号的递增步长
+Default = 1
+MustFlag = NO
+UpdateFlag = YES
+
+[Prefix]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = STR
+Desc = 最终话单的文件名的前缀：%y表示2位年份 %Y表示4位年份 %m表示2位月份 %d表示2位日期 %H表示2位小时(0-23) %M表示2位分钟 %S表示2位秒 %c或%C表示2位通道号）其他不常用的: %I(大写)表示小时(1-12的表示法) %w表示周(0-6) %p表示a.m.或者p.m. %%表示%。
+Default = b
+MustFlag = NO
+UpdateFlag = YES
+
+[Postfix]
+SectList = DiskFile
+Relation = 
+Type = STR
+Desc = 最终话单的文件的后缀
+Default = dat
+MustFlag = NO
+UpdateFlag = YES
+
+[Infix]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = STR
+Desc = 最终话单的文件的中缀
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[SaveSecond]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = ENUM
+Desc = 最终话单是否保存两份标志 (0-1份,1-2份)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[HotSaveSecond]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = ENUM
+Desc = 第二份话单是否实时保存标志 (0-临时文件关闭后生成,1-话单同时保存到临时文件和第二份文件)。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[FetchFileTimeOut]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc =计费中心取话单超时的时间限制 (单位: 分钟)。
+Default = 30
+MustFlag = NO
+UpdateFlag = YES
+
+[DeadLineOfAutoDel]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 话单本地保存期限 (单位: 天，取值范围: 7天-180天,默认值: 7天)。
+Default = 7
+MustFlag = NO
+UpdateFlag = YES
+
+[CDRFilter]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = STR
+Desc = 话单过滤条件。
+Default = None
+MustFlag = NO
+UpdateFlag = YES
+
+[MMLAlarmShield]
+SectList = Alarm
+Relation = 
+Type = STR
+Desc = 告警屏蔽码（MML告警使用）
+Default = 111111111111111111111
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogPrefix]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = STR
+Desc = 稽核日志的前缀 。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckLogPostfix]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = STR
+Desc = 稽核日志的后缀。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MinorDiskAlarmRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = 前后存盘路径所在分区触发次要告警的空间大小(单位是%)。
+Default = 15
+MustFlag = NO
+UpdateFlag = YES
+
+
+[NodeAliveReqInv]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 发送Node Alivet帧的间隔时间(秒，该配置应主机要求暂时去掉)
+Default = 300
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxWaitPackages]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 话单合并的最大等待包数
+Default = 10800
+MustFlag = NO
+UpdateFlag = YES
+
+[ProcBillCSN]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = ENUM
+Desc = 是否按通道在话单头增加4个字节的话单序列号，并保证连续。
+Default = 0:0,1
+MustFlag = NO
+UpdateFlag = YES
+
+[MinDiskAlarmRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = 前后存盘路径所在分区的最小告警空间（单位是%）。
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+
+[MinDiskHandoverRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc =  前后存盘路径所在分区触发倒换的空间大小(单位是M).
+Default = 400
+MustFlag = NO
+UpdateFlag = YES
+
+[MinBakDeviceRoom]
+SectList = DiskFile
+Relation =
+Type = NUM
+Desc = 备份介质的最小告警空间（单位是M）。
+Default = 50
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxFlushSpan]
+SectList = DiskFile^AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 后存盘的最大Flush包间隔
+Default = 80
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckSumPos]
+SectList = AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = NUM
+Desc = 校验和字段在最终话单中的位置（以字节为单位，从1开始）。
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[CheckSumRange]
+SectList = AccessPoint%接入点号%^Channel%接入点号%-%通道号%
+Relation = 
+Type = STR
+Desc = 要校验的字段在最终话单中的范围（配置是StartPos - EndPos的形式，如CheckSumRange= 10 - 20)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToAlarmBox]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = 与convert模块连接（告警箱）。
+Default = 6100
+MustFlag = NO
+UpdateFlag = YES
+
+[LocalPortToSynConf]
+SectList = MML
+Relation = 
+Type = NUM
+Desc = 用户登录/注销上报上报消息给M2000时的连接端口.  
+Default = 6099
+MustFlag = NO
+UpdateFlag = YES
+
+[once_bk_list_time]
+SectList = NetBackup^BackupTask%备份任务号%
+Relation = 
+Type = STR
+Desc = 一次性备份时间列表，指定的时间只会执行一次备份，执行后此次时间将被删除。格式为YYYY-mm-DD HH:MM:SS，序列之间用','分隔
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[PerfRootDir]
+SectList = Perf
+Relation = 
+Type = STR
+Desc = 性能统计数据文件的存放路径 (UNIX:/var/other/perf,Windows:d:\other\perf)。
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[IsDebug]
+SectList = Kernel
+Relation =
+Type = NUM
+Desc = 是否调试模式（1是，0否）
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUSTPATH]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = cluster软件安装点
+Default = /etc/opt/SUNWcluster
+MustFlag = NO
+UpdateFlag = YES
+
+[CLUST]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = SC集群名称
+Default = sc-igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[LOGHOST]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = 逻辑主机名
+Default = ha-igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[DATASERVICE]
+SectList = Cluster
+Relation =
+Type = STR
+Desc = 高可用数据服务名
+Default = igwb
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontVolume]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = 前存盘的逻辑卷
+Default = front
+MustFlag = NO
+UpdateFlag = YES
+
+[BackVolume]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = 后存盘的逻辑卷
+Default = back
+MustFlag = NO
+UpdateFlag = YES
+
+[FrontDG]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = 前存盘所在的磁盘组
+Default = igwbdg
+MustFlag = NO
+UpdateFlag = YES
+
+[BackDG]
+SectList = AgentAlarm
+Relation =
+Type = STR
+Desc = 后存盘所在的磁盘组
+Default = igwbdg
+MustFlag = NO
+UpdateFlag = YES
+
+[StaticRes]
+SectList = Resource%资源索引号%
+Relation = 
+Type = NUM
+Desc = 是否静态资源
+Default = 0
+MustFlag = NO
+UpdateFlag = YES
+
+[OrginalIP]
+SectList = Resource%资源索引号%
+Relation = 
+Type = STR
+Desc = 连固网的原始IP地址
+Default = 
+MustFlag = YES
+UpdateFlag = YES
+
+[AlarmId]
+SectList = Resource%资源索引号%
+Relation = 
+Type = NUM
+Desc = 配置告警ID,5:心跳中断告警,7:双机倒换告警,9:私网中断告警,11:资源失效告警,13:IP资源失效,15:卷资源失效,17:硬盘故障
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[AlarmPara]
+SectList = Resource%资源索引号%
+Relation = 
+Type = NUM
+Desc = 配置告警参数, 填写资源号
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[Service]
+SectList = Resource%资源索引号%
+Relation = 
+Type = STR
+Desc = 服务名（仅供服务资源使用）
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[AppPath]
+SectList = Resource%资源索引号%
+Relation = 
+Type = STR
+Desc = 应用程序的绝对路径名（仅供应用程序资源使用）
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[Volume]
+SectList = Resource%资源索引号%
+Relation = 
+Type = STR
+Desc = 卷标名（仅供共享磁盘阵列资源使用，注意：需要与对应的驱动器的卷标相同）
+Default = 
+MustFlag = NO
+UpdateFlag = YES
+
+[MaxDuration]
+SectList = AccessPoint%接入点号%
+Relation = 
+Type = NUM
+Desc = 话单合并的最大时长（单位：秒）
+Default = 10800
+MustFlag = NO
+UpdateFlag = YES
+
+[PreparePage]
+SectList = OM
+Relation = 
+Type = NUM
+Desc = 在客户端查询浏览话单时，需要超前准备的页数
+Default = 5
+MustFlag = NO
+UpdateFlag = YES
+

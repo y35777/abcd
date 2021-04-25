@@ -1,0 +1,75 @@
+#定义MAKE规则
+ccFLAGS   = $(CCFLAGS)
+TMP_OBJ   = .obj/
+OBJ       = .output/$(OUTPUT_OBJ)$(OUTPUT_EXT)
+EXT_RULES = *.cpp *.c
+
+#取一级子目录的*.c*文件名
+SOURCES   := $(wildcard */*.cpp */*.c)
+ifeq ($(SOURCES),)
+SUB_DIR_1 :=
+else
+#取一级子目录名
+SUB_DIR_1 := $(dir $(SOURCES))
+#过滤所有windows平台的目录
+NT_DIR    := $(wildcard *_nt)
+SUB_DIR_1 := $(patsubst %/, %, $(SUB_DIR_1))
+SUB_DIR_1 := $(filter-out $(NT_DIR),$(SUB_DIR_1))
+#去重排序
+SUB_DIR_1 := $(sort $(SUB_DIR_1))
+FILTER_1  := $(patsubst %, %/*.cpp, $(SUB_DIR_1))
+FILTER_2  := $(patsubst %, %/*.c, $(SUB_DIR_1))
+EXT_RULES := $(EXT_RULES) $(FILTER_1) $(FILTER_2)
+endif
+
+#取二级子目录的*.c*文件名
+ifeq ($(SUB_DIR_1),)
+else
+FILTER_1  := $(patsubst %, %/*/*.cpp, $(SUB_DIR_1))
+FILTER_2  := $(patsubst %, %/*/*.c, $(SUB_DIR_1))
+SOURCES   := $(wildcard $(FILTER_1) $(FILTER_1))
+ifeq ($(SOURCES),)
+SUB_DIR_2 :=
+else
+#取二级子目录名
+SUB_DIR_2 := $(dir $(SOURCES))
+#去重排序
+SUB_DIR_2 := $(patsubst %/, %, $(SUB_DIR_2))
+SUB_DIR_2 := $(sort $(SUB_DIR_2))
+EXT_RULES := $(EXT_RULES) $(FILTER_1) $(FILTER_2)
+endif
+endif
+
+SOURCES   := $(wildcard $(EXT_RULES))
+OBJS      := $(patsubst %.cpp, .obj/%.o, $(patsubst %.c, .obj/%.o, $(SOURCES))) 
+
+ifeq ($(SUB_DIR_1),)
+else
+SUB_DIR_1 := $(patsubst %, .obj/%, $(SUB_DIR_1))
+endif
+ifeq ($(SUB_DIR_2),)
+else
+SUB_DIR_2 := $(patsubst %, .obj/%, $(SUB_DIR_2))
+endif
+
+# 连接最终目标文件 
+$(OBJ): mkdir $(OBJS) 
+	$(LINKER) $(LINKFLAGS) $(OBJ) $(OBJS) $(TOTAL_LIB) $(OSS_LIBS) $(XML_LIBS)
+	mv $(OBJ) $(OUTPUT_DIR) 
+
+# 编译目标文件 
+.obj/%.o : %.cpp
+	$(CCC) $(CCFLAGS) -c $< -o $@
+
+.obj/%.o : %.c
+	$(ccc) $(ccFLAGS) -c $< -o $@
+
+
+# 清除生成的目标文件，在利用"make clean"命令时有效 
+clean:
+	rm -f -r $(OBJS) $(OBJ) .obj .output
+	rm -f core
+
+mkdir:
+	if (test -d .obj) ; then pwd ; else mkdir .obj $(SUB_DIR_1) $(SUB_DIR_2) ; fi
+	if (test -d .output) ; then pwd ; else mkdir .output ; fi

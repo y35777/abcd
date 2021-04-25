@@ -1,0 +1,5 @@
+#ifndef __COLLECTOR_RESOURCE_H__
+#define __COLLECTOR_RESOURCE_H__
+
+
+#endif //__COLLECTOR_RESOURCE_H__
